@@ -1,0 +1,32 @@
+<svg width="1000" height="1000" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <radialGradient id="bg" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(500 500) rotate(90) scale(500)">
+    <stop stop-color="#10110F"/><stop offset="1" stop-color="#030403"/>
+  </radialGradient>
+  <linearGradient id="metal" x1="320" y1="140" x2="715" y2="820" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#424542"/><stop offset=".16" stop-color="#111211"/><stop offset=".45" stop-color="#050605"/><stop offset=".72" stop-color="#252825"/><stop offset="1" stop-color="#050605"/>
+  </linearGradient>
+  <linearGradient id="edge" x1="210" y1="180" x2="820" y2="800" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#6F746D"/><stop offset=".3" stop-color="#191B19"/><stop offset=".7" stop-color="#3B3F3A"/><stop offset="1" stop-color="#0A0B0A"/>
+  </linearGradient>
+  <radialGradient id="ember" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(632 606) rotate(-136) scale(220 120)">
+    <stop stop-color="#FFC329"/><stop offset=".25" stop-color="#FF8A00" stop-opacity=".95"/><stop offset=".62" stop-color="#9A3B00" stop-opacity=".46"/><stop offset="1" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
+<rect width="1000" height="1000" rx="110" fill="url(#bg)"/>
+<circle cx="500" cy="500" r="360" stroke="#151713" stroke-width="2" stroke-dasharray="10 16"/>
+<circle cx="500" cy="500" r="292" stroke="#111310" stroke-width="1"/>
+<path d="M500 182C606 182 703 228 770 302L660 398C617 352 560 327 500 327C463 327 427 336 395 352L343 220C392 195 445 182 500 182Z" fill="url(#metal)" stroke="url(#edge)" stroke-width="4"/>
+<path d="M778 319C831 411 837 518 802 612L661 566C683 508 680 444 648 389C630 357 604 330 573 310L667 201C715 231 752 271 778 319Z" transform="rotate(118 500 500)" fill="url(#metal)" stroke="url(#edge)" stroke-width="4"/>
+<path d="M778 319C831 411 837 518 802 612L661 566C683 508 680 444 648 389C630 357 604 330 573 310L667 201C715 231 752 271 778 319Z" transform="rotate(238 500 500)" fill="url(#metal)" stroke="url(#edge)" stroke-width="4"/>
+<circle cx="500" cy="500" r="185" fill="#020302" stroke="#343834" stroke-width="10"/>
+<circle cx="500" cy="500" r="143" stroke="#0B0D0B" stroke-width="44"/>
+<path d="M598 395C646 437 665 500 647 558C633 603 599 640 555 659" stroke="url(#ember)" stroke-width="34" stroke-linecap="round"/>
+<path d="M590 407C625 441 639 489 627 535" stroke="#FF9D1B" stroke-width="8" stroke-linecap="round" opacity=".8" filter="url(#shadow)"/>
+<circle cx="500" cy="500" r="92" fill="#010201" stroke="#20231F" stroke-width="4"/>
+<g opacity=".54" stroke="#F6FF00"><path d="M500 94V146"/><path d="M500 854V906"/><path d="M94 500H146"/><path d="M854 500H906"/></g>
+<g fill="#00F5DF"><circle cx="500" cy="146" r="5"/><circle cx="854" cy="500" r="5"/></g>
+<text x="500" y="875" text-anchor="middle" fill="#ECEFE6" font-family="Arial,Helvetica,sans-serif" font-size="70" font-weight="800" letter-spacing="10">RADIX<tspan fill="#F6FF00">OS</tspan></text>
+<text x="500" y="918" text-anchor="middle" fill="#6F7668" font-family="Courier New,monospace" font-size="19" letter-spacing="6">EVIDENCE-FIRST AGENT ENVIRONMENT</text>
+</svg>
