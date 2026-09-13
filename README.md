@@ -1,91 +1,54 @@
-# Aaryash Bhagankar — Cyberpunk Portfolio
+# Aaryash Bhagankar
 
-A dependency-light, Vercel-ready portfolio focused on cybersecurity, DFIR, local AI and evidence-first systems.
+**Cybersecurity · Digital Forensics · Agentic AI**
 
-## What changed in this pass
+I’m Aaryash, a cybersecurity-focused engineering student based in Chennai, India. I build security systems, forensic tools, and local AI agents with a focus on evidence, traceability, and human control.
 
-- the main name lockup now uses a **MagicUI HyperText-style scramble interaction** without changing the existing typography
-- social links use the supplied **fanned glass-card interaction** for GitHub, LinkedIn and email
-- the first four core builds stay as deliberate product cards: **RadixOS, RED Justice, VisionTrace and LOWKIE**
-- the remaining eight systems now live in a **3D dossier constellation** instead of a generic card grid
-- the previous “Codebase Index” block and topology diagram were removed
-- project-logo scanner bars were removed from cards and dossier media
-- every constellation node still opens the same full engineering dossier with source surface, architecture, capabilities and trust boundaries
-- responsive fallback turns the 3D orbit into a horizontal snap rail on tablets/mobile
-- GitHub Actions + Vercel static build config are included
+I’m interested in the work between finding a signal and understanding what it means: tracing financial fraud, reconstructing video evidence, investigating relationships, and building tools that make those processes easier to inspect.
 
-## Cyberpunk visual additions
+> Evidence before execution. Verify everything.
 
-- **Sentinel–09**: an original procedural 3D drone exhibit below the hero, with armored/wireframe materials, mouse dragging, keyboard-accessible rotation buttons, and an optical scan animation.
-- A terminal signal link leads into the exhibit; custom skyline, uplink, waveform, and transmission artwork extends the existing yellow/cyan visual language.
-- The hero name scales to its available column to avoid overlapping the terminal.
-- The new renderer is dependency-free, caps drawing at 30 FPS and device pixel ratio at 2, and stops animation when offscreen or in a hidden tab. Reduced-motion mode uses static renders and manual rotation; a local SVG supplies the no-JavaScript fallback.
-- The additive implementation lives in `assets/ui/cyberpunk.css` and `assets/ui/cyberpunk.js`; the static build includes these with the other assets.
+## About me
 
-## FM.09 soundtrack and cursor
+I’m pursuing a B.Tech at **SRM Institute of Science and Technology** and studying in the **foundation level of IIT Madras’s BS program**. Alongside my coursework, I build projects, participate in CTFs and hackathons, and explore applied AI research.
 
-- Custom acid-yellow pointer artwork with an interactive targeting reticle on mouse/pen devices. Touch keeps native behavior; reduced-motion mode disables the trailing reticle.
-- The original geometric **Frequency Architecture** visualizer uses the playing MP3's Web Audio frequency and waveform data. A persistent dock provides now-playing details and play/pause from anywhere; the full player near Contact includes seeking, volume, visual hold, and all three tracks.
-- **Cyberpunk Metaverse Event by IKOLIKS_AJ always loads first and loops.** The other tracks are manual alternatives, and no last-track preference overrides the default. Initial volume is 12%. Pausing disarms gesture-based playback, so subsequent navigation does not restart music.
-- Browsers may block audible autoplay until a click/tap. The site attempts playback and then uses the first eligible interaction or Play button to unlock it. Track files are hosted locally under `assets/audio/`; no streaming account or API key is needed.
-- Geometry draws at up to 24 FPS only while music plays and the document is visible. The full sculpture skips drawing offscreen; reduced-motion mode keeps it static. No microphone access is used.
-- Vercel uses the existing `npm run build` command and `dist` output directory (Framework Preset: **Other**). The build copies the audio, cursor artwork, and visualizer with all site assets.
+My interests include digital forensics and incident response, OSINT, application security, cybercrime investigation, local language models, and controlled agent workflows.
 
-## Run locally
+## Field experience
 
-```bash
-npm run dev
-```
+**Cyber Crime Investigation & Digital Forensics Intern — Nashik City Cyber Police**
 
-Open `http://localhost:3000`.
+*17 June – 18 July 2026*
 
-You can also run it with any static server because the live site has no runtime package dependency.
+During my internship, I gained exposure to cybercrime investigations, digital forensics, financial-fraud analysis, and coordination with the Legal Department.
 
-## Validate and build
+I built an **NCCRP fund-flow analysis tool** to help simplify transaction tracing and day-to-day investigative work. That project became the starting point for **RED Justice**, a broader investigation and evidence-intelligence platform. I also received a Letter of Recommendation from the Senior Police Inspector for my technical contribution.
 
-```bash
-npm run check
-npm run build
-```
+## What I’m building
 
-The production output is written to `dist/`.
+- **[RadixOS](https://github.com/automatedcatso/RadixOS)** — A local-first Windows AI command environment with project intelligence, persistent memory, scoped tools, and human approval gates.
+- **RED Justice** — An offline-first investigation platform for entity relationships, money-flow graphs, and traceable evidence handling.
+- **VisionTrace** — A local-first video-forensics tool for tracking, evidence reconstruction, and scene graphs with transparent event logic.
+- **LOWKIE** — A local model workbench covering datasets, training recipes, transformer runs, checkpoints, and inference.
 
-## Vercel
+My other builds include Aureus Intelligence, AI Content Studio, Signal Desk, Jacobian, Jordan, ONYX, the NCCRP Fund-Flow Tool, and Hydra Fabric.
 
-Import the repository into Vercel. `vercel.json` already points Vercel at:
+## Research
 
-- build command: `npm run build`
-- output directory: `dist`
+I’m exploring **AI-driven energy management for smart supercapacitor-powered IoT networks**: how adaptive control can balance available energy, workload demand, and system behavior on resource-constrained devices.
 
-## GitHub
+## Tools I work with
 
-`.github/workflows/ci.yml` validates the JS/assets and builds the site on pushes and pull requests.
+**Python · TypeScript · JavaScript · Node.js · Electron · Linux · FastAPI · OpenCV · SQLite · PyTorch · Git**
 
-## MagicUI / shadcn note
+I’m particularly interested in combining security engineering with practical AI: systems that run locally, expose their reasoning and evidence, and keep consequential decisions under human review.
 
-The live hero uses a dependency-free port of the HyperText scramble interaction so the site stays fast and works as a static deploy. A React/shadcn-compatible source version is included at:
+## Beyond the projects
 
-`components/ui/hyper-text.tsx`
+CTFs and hackathons are part of how I learn. My portfolio includes participation in P3rf3ctr00t CTF, ByteBeat, Confluence 1.0, and the Digital Twins hackathon, alongside a **second prize in Reuse & Remodel Product** and involvement with **GitHub Community SRM**.
 
-To replace it with the registry version in a React migration, the requested command is already available as an npm script:
+## Let’s connect
 
-```bash
-npm run ui:add:hyper-text
-```
+I’m open to cybersecurity and DFIR work, research collaborations, secure AI projects, and ambitious engineering problems.
 
-which runs:
-
-```bash
-npx shadcn@latest add @magicui/hyper-text
-```
-
-## Interaction map
-
-- hero name: scramble/reveal on load and hover
-- social fan: expands and straightens on hover/focus
-- terminal: simulated authorized-lab recon sequence
-- core projects: click to inspect
-- 3D project orbit: hover to pause, click a node to inspect, manual pause/resume control
-- command palette: `Ctrl/Cmd + K`
-- OVERDRIVE easter eggs remain intact
-- reduced-motion users get a static accessible version of the effects
+[GitHub](https://github.com/automatedcatso) · [LinkedIn](https://www.linkedin.com/in/aaryash-bhagankar-50079230a/) · [Email](mailto:ceazerdrocks@gmail.com) · [Resume](assets/documents/Aaryash_Bhagankar_Resume.pdf)
