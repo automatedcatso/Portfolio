@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Bisect"><title>Bisect</title><g transform="translate(6 6) scale(.4642857)"><path xmlns="http://www.w3.org/2000/svg" fill="#ffd5b5" d="M28 0h16v32H28zm44 0h24v8H72zm-8 8h16v24H64zM20 32h72v8H20zM12 40h88v40H12zM20 80h72v8H20zM28 88h56v8H28zM32 96h16v8H32zm32 0h16v8H64z" />
+      <path xmlns="http://www.w3.org/2000/svg" fill="#f4bfa0" d="M12 72h8v8h-8zm80 0h8v8h-8zM28 88h56v8H28z" />
+      <path xmlns="http://www.w3.org/2000/svg" fill="#f7aabd" d="M32 8h8v20h-8zm36 8h8v12h-8z" />
+      <rect xmlns="http://www.w3.org/2000/svg" x="30" y="56" width="8" height="9" rx="2" fill="#20242d" />
+      <rect xmlns="http://www.w3.org/2000/svg" x="74" y="56" width="8" height="9" rx="2" fill="#20242d" />
+      <path xmlns="http://www.w3.org/2000/svg" d="M48 70q4 7 8 0q4 7 8 0" fill="none" stroke="#20242d" stroke-width="3" stroke-linecap="round" />
+      <rect xmlns="http://www.w3.org/2000/svg" x="22" y="68" width="14" height="7" rx="2" fill="#f398ae" />
+      <rect xmlns="http://www.w3.org/2000/svg" x="76" y="68" width="14" height="7" rx="2" fill="#f398ae" />
+    </g><path d="M51 14h6m-3-3v6" stroke="#d4edc3" stroke-width="2" stroke-linecap="round"/></svg>

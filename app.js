@@ -95,16 +95,16 @@
   const drawMatrix=()=>{if(!mctx||reduceMotion)return;mctx.fillStyle='rgba(5,6,5,.09)';mctx.fillRect(0,0,innerWidth,innerHeight);mctx.font='11px monospace';drops.forEach((y,i)=>{const c=Math.random()>.5?'1':'0';mctx.fillStyle='rgba(246,255,0,.36)';mctx.fillText(c,i*18,y*18);if(y*18>innerHeight&&Math.random()>.975)drops[i]=0;drops[i]++});requestAnimationFrame(drawMatrix)};
   resizeMatrix(); if (!reduceMotion) drawMatrix(); addEventListener('resize',resizeMatrix,{passive:true});
 
-  // Animated red-team terminal demo. Everything shown targets the RFC 5737 TEST-NET lab range only.
+  // Illustrative ML workflow: these lines are interface copy, not live experiment results.
   const terminalDynamic = $('#terminalDynamic');
   const terminalClock = $('#terminalClock');
   const terminalSequences = [
-    {cmd:'nmap -Pn -sV --top-ports 12 198.51.100.24', out:'PORT   STATE SERVICE      VERSION\n22/tcp open  ssh          OpenSSH 9.x\n80/tcp open  http         nginx lab\n443/tcp open https        nginx lab\n445/tcp filt  microsoft-ds\n[+] 3 services surfaced // host: demo-web', cls:'ok'},
-    {cmd:'nmap -O --osscan-limit 198.51.100.24', out:'[+] OS fingerprint: Linux 6.x family // confidence 94%\n[+] latency: 1.8ms // isolated virtual range', cls:'term-cyan'},
-    {cmd:'whatweb http://198.51.100.24', out:'http://198.51.100.24 [200 OK] nginx, HTML5, X-Powered-By[demo-lab]', cls:'ok'},
-    {cmd:'msfconsole -q -x "workspace -a portfolio-lab; hosts; services; exit"', out:'[*] Workspace: portfolio-lab\n[*] 198.51.100.24  demo-web  Linux\n[*] tcp/22 ssh · tcp/80 http · tcp/443 https\n[*] enumeration only // no exploit launched', cls:'term-cyan'},
-    {cmd:'msfconsole -q -x "use auxiliary/scanner/http/http_version; set RHOSTS 198.51.100.24; run; exit"', out:'[+] 198.51.100.24:80 - HTTP server: nginx [demo]\n[*] auxiliary scan complete // 1 host', cls:'ok'},
-    {cmd:'reconctl graph --target 198.51.100.24 --live', out:'[+] host → 3 services → 4 fingerprints → 0 exploit actions\n[+] recon loop complete // restarting passive sweep…', cls:'ok'}
+    {cmd:'dataset inspect --source local-recordings', out:'[demo] Inspect labels, session IDs and data origin.\n[demo] Keep synthetic examples separate from physical observations.', cls:'term-cyan'},
+    {cmd:'split --group-by session --hold-out test', out:'[demo] Separate independent recording sessions.\n[demo] Reserve the test partition before comparing models.', cls:'ok'},
+    {cmd:'train --compare knn svm random-forest mlp', out:'[demo] Compare candidate classifiers on validation data.\n[demo] Choose a model before opening held-out test results.', cls:'term-cyan'},
+    {cmd:'evaluate --metrics precision recall macro-f1', out:'[demo] Review confusion matrices and failure examples.\n[demo] Report sample size, scope and uncertainty with every score.', cls:'ok'},
+    {cmd:'review --check provenance --inspect errors', out:'[demo] Trace observations back to the input evidence.\n[demo] Keep human review between model output and an external action.', cls:'term-cyan'},
+    {cmd:'export --include method splits checkpoints', out:'[demo] Package the method and reproducible artifacts.\n[demo] This terminal illustrates a workflow; it does not run training.', cls:'ok'}
   ];
   let sequenceIndex=0;
   const typeTerminal = async () => {
@@ -164,12 +164,12 @@
     radixos:{
       verification:'SYSTEM DOSSIER',pack:'LOCAL CONTROL PLANE',boundary:'HUMAN-GATED EXECUTION',
       sourceMap:['Nebula workspace — project-aware operator surface','Hydra knowledge map — source-linked project intelligence','Approval Inbox — side-effect review and control','Project Repair Lab — evidence-first diagnosis path','Decision Ledger / Time Machine — persistent project history'],
-      boundaries:['Project scope is explicit and local-first.','Reasoning is separated from side-effectful tool execution.','High-impact actions surface approval state instead of running invisibly.','Parallel agent work is isolated rather than sharing one uncontrolled workspace.','Evidence and source provenance stay visible through the control plane.'],      code:'03.01 // FLAGSHIP SYSTEM',kicker:'LOCAL-FIRST AI COMMAND ENVIRONMENT',title:'RADIXOS',status:'LOCAL // GUARDED',
-      lead:'A Windows AI command environment designed around a simple rule: evidence before execution. It keeps project intelligence, memory, tools, approvals and parallel agent work inside an explicit local control plane.',
+      boundaries:['Project scope is explicit and local-first.','Reasoning is separated from side-effectful tool execution.','High-impact actions surface approval state instead of running invisibly.','Parallel agent work uses separate project copies through Git worktrees.','Evidence and source provenance stay visible through the control plane.'],      code:'02.03 // AGENT SYSTEM',kicker:'LOCAL-FIRST AI COMMAND ENVIRONMENT',title:'RADIXOS',status:'LOCAL // GUARDED',
+      lead:'Runs 2–8 parallel AI agents with persistent project context and separate project copies for isolated work.',
       what:'RadixOS turns a project workspace into an inspectable operating environment for AI-assisted engineering. Hydra indexes source-linked project knowledge; persistent memory and decision history preserve context; tools stay scoped; risky side effects pass through approval surfaces instead of being silently executed.',
       tags:['Electron','Node.js','SQLite / WAL','FTS5','MCP','Agent Mesh','Human Approval'],
-      stats:[['40','DB TABLES'],['8','AGENT LANES'],['3','EXEC MODES'],['LOCAL','MEMORY']],
-      capabilities:['Hydra source-linked project intelligence and evidence relationships.','Persistent memory, Decision Ledger and Time Machine-style project context.','Scoped MCP/tool access with explicit approval gates for high-impact actions.','Parallel agent workflows isolated with Git worktrees.','Repair and verification flows that gather evidence before proposing changes.'],
+      stats:[['2–8','PARALLEL AGENTS'],['41','DB TABLES'],['3','EXEC MODES'],['LOCAL','MEMORY']],
+      capabilities:['Hydra source-linked project intelligence and evidence relationships.','Persistent memory, Decision Ledger and Time Machine-style project context.','Scoped MCP/tool access with explicit approval gates for high-impact actions.','Runs 2–8 agent lanes with separate project copies through Git worktrees.','Repair and verification flows that gather evidence before proposing changes.'],
       architecture:['Nebula UI','Hydra Index','Local Memory','Guarded Tools','Agent Lanes','Approval Gate'],
       architectureText:'The interface sits above a local persistence and intelligence layer. Project context is indexed into Hydra, retrieved into bounded agent lanes, and passed to guarded tool adapters. Execution state and approvals are surfaced rather than hidden.',
       notes:['Local-first state is a product boundary, not just a visual theme.','The system distinguishes reasoning from execution and keeps side effects inspectable.','Agent isolation and approval state are visible in the interface so parallel work does not become invisible background automation.'],
@@ -179,22 +179,22 @@
     redjustice:{
       verification:'SYSTEM DOSSIER',pack:'INVESTIGATION PLATFORM',boundary:'ANALYST-IN-THE-LOOP',
       sourceMap:['Case intake and normalized entity layer','Money-flow graph and directional transaction relationships','Evidence-linked entity relationships','Tamper-evident integrity concepts','Analyst review surfaces and provenance views'],
-      boundaries:['Graph links support investigation; they are not autonomous guilt determinations.','Evidence relationships remain traceable back to case artifacts.','Offline-first design reduces unnecessary movement of sensitive case material.','Final investigative conclusions remain with the human analyst.'],      code:'03.02 // NETWORK INTELLIGENCE',kicker:'OFFLINE-FIRST INVESTIGATION PLATFORM',title:'RED JUSTICE',status:'EVIDENCE // GRAPH',
-      lead:'An offline-first criminal-network and evidence intelligence platform evolved from the original NCCRP fund-flow investigation utility.',
-      what:'RED Justice expands transaction tracing into a broader investigation environment: entities can be resolved across evidence, money movement can be represented as a graph, and case material is handled with tamper-evident provenance instead of being reduced to disconnected rows.',
+      boundaries:['Graph links support investigation; they are not autonomous guilt determinations.','Evidence relationships remain traceable back to case artifacts.','Offline-first design reduces unnecessary movement of sensitive case material.','Final investigative conclusions remain with the human analyst.'],      code:'02.04 // DOCUMENT INTELLIGENCE',kicker:'OFFLINE-FIRST INVESTIGATION PLATFORM',title:'RED JUSTICE',status:'EVIDENCE // GRAPH',
+      lead:'Links people, documents and bank transactions across evidence so relationships can be traced back to their sources.',
+      what:'RED Justice expands the NCRP transaction-tracing tool into document ingestion, entity resolution and graph analysis. Its deterministic alias-linking component was evaluated separately on 172 labeled synthetic name pairs, including nine positive pairs; that test is not an end-to-end application benchmark.',
       tags:['Next.js','Prisma','SQLite','Graph Analysis','Cryptographic Integrity','DFIR'],
-      stats:[['GRAPH','LINKS'],['LOCAL','DATA'],['TRACE','FUNDS'],['VERIFY','EVIDENCE']],
+      stats:[['0.818','ALIAS-LINK F1'],['172','SYNTHETIC PAIRS'],['69.2%','LINK PRECISION'],['100%','LINK RECALL']],
       capabilities:['Entity-centric investigation views that connect people, accounts, identifiers and evidence.','Fund-flow graphing for tracing transaction paths rather than reading isolated records.','Evidence-linked relationships so visual conclusions remain traceable to source material.','Tamper-evident handling concepts for preserving integrity across investigation artifacts.','Offline-first operation intended for controlled investigative environments.'],
       architecture:['Case Intake','Entity Resolve','Flow Graph','Evidence Store','Integrity Layer','Analyst Review'],
       architectureText:'The system concept separates case data, entity resolution, relationship analysis and evidence integrity. Graph views are an analyst surface over traceable source records, not an autonomous verdict engine.',
-      notes:['This project grew from the narrower NCCRP Fund-Flow Tool shown later in the build index.','The portfolio presents RED Justice as investigation support; final conclusions stay with the analyst.','The visual language intentionally mirrors evidence provenance and network traversal.'],
+      notes:['The measured result is an alias-linking component test on 172 synthetic name pairs: nine positives and 163 negatives.','Precision 69.2%, recall 100% and F1 0.818 use gold-supplied name records; extraction and full-application entity resolution were not measured.','Nine positive pairs are a small fixture. The result does not establish perfect general recall or end-to-end performance on 120 documents.','This project grew from the narrower NCRP Fund-Flow Tool shown later in the build index.'],
       trace:['case evidence → normalized entities','transactions → directional money-flow edges','shared identifiers → relationship candidates','artifact → provenance + integrity state','graph insight → analyst verification'],
-      images:[['assets/projects/red-justice-logo.png','RED JUSTICE // SYSTEM MARK'],['assets/projects/deep/nccrp-poster.png','ORIGIN // NCCRP FUND-FLOW']]
+      images:[['assets/projects/red-justice-logo.png','RED JUSTICE // SYSTEM MARK'],['assets/projects/deep/nccrp-poster.png','ORIGIN // NCRP FUND-FLOW']]
     },
     visiontrace:{
       verification:'SYSTEM DOSSIER',pack:'LOCAL VIDEO FORENSICS',boundary:'EVIDENCE-LINKED OUTPUT',
       sourceMap:['Video intake and frame pipeline','Deterministic object/track continuity','Transparent event logic','Scene-relationship reconstruction','Source timestamp/frame linkage'],
-      boundaries:['Video processing is designed to stay local for sensitive evidence.','Reconstructed events are evidence-supported hypotheses rather than hidden model verdicts.','Tracks and relationships link back to timestamps/frames for analyst review.','Repeatable primitives are favored over opaque inference where possible.'],      code:'03.03 // VIDEO FORENSICS',kicker:'LOCAL-FIRST VIDEO EVIDENCE RECONSTRUCTION',title:'VISIONTRACE',status:'TRACE // RECONSTRUCT',
+      boundaries:['Video processing is designed to stay local for sensitive evidence.','Reconstructed events are evidence-supported hypotheses rather than hidden model verdicts.','Tracks and relationships link back to timestamps/frames for analyst review.','Repeatable primitives are favored over opaque inference where possible.'],      code:'02.13 // VIDEO ANALYSIS',kicker:'LOCAL-FIRST VIDEO EVIDENCE RECONSTRUCTION',title:'VISIONTRACE',status:'TRACE // RECONSTRUCT',
       lead:'A privacy-focused video-forensics system built around deterministic tracking, transparent event logic and evidence-linked scene reconstruction.',
       what:'VisionTrace is designed to turn video evidence into a reviewable sequence of tracked objects, events and scene relationships without hiding the reasoning path. The emphasis is on local processing, deterministic tracking primitives and links back to the original evidence.',
       tags:['Python','FastAPI','OpenCV','Computer Vision','DFIR','Scene Graphs'],
@@ -209,7 +209,7 @@
     lowkie:{
       verification:'SYSTEM DOSSIER',pack:'LOCAL MODEL WORKBENCH',boundary:'ARTIFACT-FIRST EXPERIMENTS',
       sourceMap:['Dataset preparation pipeline','BPE/tokenization experiments','PyTorch training recipes','LoRA-style adapter path','Safetensors/checkpoint artifacts','Local evaluation and inference loop'],
-      boundaries:['Training artifacts remain explicit and versionable.','Local inference reduces dependency on opaque hosted runtimes.','Dataset/tokenizer/training stages are separate so failures can be inspected.','Model output remains an experiment result, not an unquestioned authority.'],      code:'03.04 // LOCAL MODEL LAB',kicker:'SMALL-MODEL DEVELOPMENT WORKBENCH',title:'LOWKIE',status:'TRAIN // INFER',
+      boundaries:['Training artifacts remain explicit and versionable.','Local inference reduces dependency on opaque hosted runtimes.','Dataset/tokenizer/training stages are separate so failures can be inspected.','Model output remains an experiment result, not an unquestioned authority.'],      code:'02.14 // LOCAL MODEL LAB',kicker:'SMALL-MODEL DEVELOPMENT WORKBENCH',title:'LOWKIE',status:'TRAIN // INFER',
       lead:'A local model-development workbench that connects dataset preparation, tokenization, training recipes, checkpoints and inference into one inspectable workflow.',
       what:'LOWKIE focuses on building and experimenting with smaller AI models locally. Instead of treating training as a black box, it exposes the path from raw examples and BPE/tokenization through PyTorch runs, LoRA-style adaptation, checkpoint artifacts and local inference.',
       tags:['PyTorch','LoRA','BPE','Safetensors','Local Inference','Datasets'],
@@ -224,7 +224,7 @@
     aureus:{
       verification:'SOURCE PACK // VERIFIED',pack:'43 PACK FILES // ELECTRON',boundary:'SANDBOX + HUMAN PUBLISH GATE',
       sourceMap:['electron/main.mjs — providers, persistence, Gemini gateway and publishing','electron/preload.cjs — narrow allowlisted renderer bridge','electron/provider-config.mjs — fixed provider definitions and limits','src/App.tsx — React operator surface','src/lib/trends.ts — trend and signal processing helpers','docs/ARCHITECTURE.md + docs/OPPORTUNITY_RADAR.md — documented runtime/data flow'],
-      boundaries:['Renderer runs with context isolation, sandboxing and no Node integration.','Provider keys are encrypted through Electron safeStorage and stay out of renderer state.','Provider failures remain explicit; cached data is labeled instead of faked as live.','Files are size/signature/MIME validated before model or publishing workflows.','LinkedIn publication is separated behind exact final human approval.'],      code:'03.05 // REAL-DATA INTELLIGENCE',kicker:'WINDOWS DESKTOP // EVIDENCE-GROUNDED',title:'AUREUS INTELLIGENCE',status:'LIVE DATA // GROUNDED',
+      boundaries:['Renderer runs with context isolation, sandboxing and no Node integration.','Provider keys are encrypted through Electron safeStorage and stay out of renderer state.','Provider failures remain explicit; cached data is labeled instead of faked as live.','Files are size/signature/MIME validated before model or publishing workflows.','LinkedIn publication is separated behind exact final human approval.'],      code:'02.05 // REAL-DATA INTELLIGENCE',kicker:'WINDOWS DESKTOP // EVIDENCE-GROUNDED',title:'AUREUS INTELLIGENCE',status:'LIVE DATA // GROUNDED',
       lead:'A Windows-first desktop intelligence system that aggregates real technology, world, cybersecurity, research and career signals, then allows evidence-grounded analysis without fabricating fallback data.',
       what:'Aureus starts empty and earns every item through a real provider or an explicitly marked cache. Its connectors pull heterogeneous feeds into a normalized intelligence surface; Opportunity Radar combines vacancy and learning signals; Gemini analysis is bounded by retrieved evidence; LinkedIn achievement publishing is separated behind an exact approval step.',
       tags:['Electron 37','React 19','TypeScript','Gemini','safeStorage','RSS / APIs','Career Radar'],
@@ -239,7 +239,7 @@
     contentstudio:{
       verification:'SOURCE PACK // VERIFIED',pack:'47 PACK FILES // PYTHON',boundary:'VALIDATE BEFORE PUBLISH',
       sourceMap:['native_app/app_shell.py — native application shell and page orchestration','native_app/services/generation_service.py — WYR, story and facts generation logic','native_app/services/tts_service.py — neural narration and word-boundary timing','native_app/services/render_service.py — FFmpeg composition and media timing','native_app/services/automation_service.py — queue, schedule and retention state machine','native_app/services/upload_service.py — YouTube OAuth upload path','native_app/services/validation_service.py — finished-render release gate'],
-      boundaries:['Render output passes validation before it can enter the publishing flow.','YouTube publishing uses OAuth rather than embedded account credentials.','Duplicate hashes and recent-content memory reject repeated scripts/facts.','Entertainment percentages are generated presentation content, not represented as survey measurements.','Temporary artifacts are registered for controlled cleanup instead of ad-hoc deletion.'],      code:'03.06 // MEDIA AUTOMATION',kicker:'NATIVE WINDOWS // SHORT-FORM PRODUCTION',title:'AI CONTENT STUDIO',status:'GENERATE // VALIDATE',
+      boundaries:['Render output passes validation before it can enter the publishing flow.','YouTube publishing uses OAuth rather than embedded account credentials.','Duplicate hashes and recent-content memory reject repeated scripts/facts.','Entertainment percentages are generated presentation content, not represented as survey measurements.','Temporary artifacts are registered for controlled cleanup instead of ad-hoc deletion.'],      code:'02.06 // MEDIA AUTOMATION',kicker:'NATIVE WINDOWS // SHORT-FORM PRODUCTION',title:'AI CONTENT STUDIO',status:'GENERATE // VALIDATE',
       lead:'A native Windows production pipeline for automated 9:16 video formats with neural narration, media synchronization, FFmpeg rendering, validation, scheduling and YouTube publishing.',
       what:'The studio supports three distinct short-form pipelines: Would You Rather rounds, Reddit/Minecraft stories and Interesting Facts. Generation is not the final step: scripts are deduplicated, narration timing drives captions and scene duration, media is rendered through FFmpeg, output is validated, and approved jobs can enter a scheduled upload workflow.',
       tags:['Python','PySide6','FFmpeg','Edge TTS','SQLite','Gemini','YouTube OAuth'],
@@ -254,7 +254,7 @@
     signaldesk:{
       verification:'SOURCE PACK // VERIFIED',pack:'118 PACK FILES // FLASK',boundary:'LOCAL DEFAULT // REVIEW REQUIRED',
       sourceMap:['portal.py — DispatcherMiddleware entrypoint mounting both applications','apps/notice-studio/notice_app/services/excel_parser.py — spreadsheet intake and aliasing','apps/notice-studio/notice_app/services/docx_engine.py — template-preserving notice generation','apps/investigation-engine/investigation_app/pipeline/extraction.py — evidence text extraction','apps/investigation-engine/investigation_app/pipeline/hashing.py — artifact hashing','apps/investigation-engine/investigation_app/pipeline/relationships.py — bounded relationship construction','apps/investigation-engine/investigation_app/services/report_service.py — reviewable exports'],
-      boundaries:['Standard analysis is deterministic and local-first.','Generated email files are drafts; the system does not claim they were transmitted.','Model-assisted Smart/Deep analysis is optional and does not replace analyst verification.','Relationship edges are evidence/co-occurrence signals rather than autonomous conclusions.','Generated notices are neutral workflow artifacts, not legal orders or legal advice.'],      code:'03.07 // OPERATIONS + EVIDENCE',kicker:'LOCAL-FIRST // NOTICE + INVESTIGATION SUITE',title:'SIGNAL DESK',status:'LOCAL // REVIEWABLE',
+      boundaries:['Standard analysis is deterministic and local-first.','Generated email files are drafts; the system does not claim they were transmitted.','Model-assisted Smart/Deep analysis is optional and does not replace analyst verification.','Relationship edges are evidence/co-occurrence signals rather than autonomous conclusions.','Generated notices are neutral workflow artifacts, not legal orders or legal advice.'],      code:'02.07 // OPERATIONS + EVIDENCE',kicker:'LOCAL-FIRST // NOTICE + INVESTIGATION SUITE',title:'SIGNAL DESK',status:'LOCAL // REVIEWABLE',
       lead:'A local-first operations portal made of two Flask applications: Notice Studio for transaction-driven document work and Investigation Engine for evidence extraction, linking, search, timelines and reporting.',
       what:'Notice Studio imports spreadsheet transaction rows, validates and edits them, then produces neutral DOCX notices, unsent .eml drafts and a delivery manifest. Investigation Engine ingests mixed office files, PDFs, images, email, logs, CSV/XLSX, HTML/XML, archives and code-like text; it extracts indicators and entities, hashes/indexes artifacts, builds similarity/relationship views and exports analyst-reviewable reports.',
       tags:['Flask','SQLite','SQLAlchemy','DOCX','PDF','Entity Extraction','Gemini Optional'],
@@ -269,7 +269,7 @@
     jacobian:{
       verification:'SOURCE PACK // VERIFIED',pack:'169 PACK FILES // TAURI',boundary:'RESOLVE → PREVIEW → CONFIRM',
       sourceMap:['apps/desktop/src-tauri/src/intent.rs — local intent handling','apps/desktop/src-tauri/src/resolver.rs — trusted target resolution','apps/desktop/src-tauri/src/permissions.rs — policy and one-use confirmation','apps/desktop/src-tauri/src/actions.rs — named native action adapters','apps/desktop/src-tauri/src/code_lab.rs — bounded coding-lab execution','apps/desktop/src/data/curriculum.ts — sequenced learning curriculum','apps/desktop/src/services/localTutor.ts — persistent Socratic tutor behavior'],
-      boundaries:['Normal assistant operation does not expose a general-purpose shell.','Destructive requests and caller-supplied executable paths remain blocked.','Sensitive native actions require policy preview and one-use confirmation tokens.','Gemini cannot directly choose arbitrary filesystem paths, URLs or native adapters.','Learning state stays local; Gemini credentials are stored outside app SQLite in Windows Credential Manager.'],      code:'03.08 // LOCAL AI + TUTOR',kicker:'TAURI WINDOWS ASSISTANT // STRUCTURED LEARNING',title:'JACOBIAN',status:'LOCAL // PERMISSIONED',
+      boundaries:['Normal assistant operation does not expose a general-purpose shell.','Destructive requests and caller-supplied executable paths remain blocked.','Sensitive native actions require policy preview and one-use confirmation tokens.','Gemini cannot directly choose arbitrary filesystem paths, URLs or native adapters.','Learning state stays local; Gemini credentials are stored outside app SQLite in Windows Credential Manager.'],      code:'02.08 // LOCAL AI + TUTOR',kicker:'TAURI WINDOWS ASSISTANT // STRUCTURED LEARNING',title:'JACOBIAN',status:'LOCAL // PERMISSIONED',
       lead:'A local-first desktop AI assistant paired with a structured programming tutor: voice and desktop actions on one side, long-term learning plans, quizzes, notes and a bounded coding lab on the other.',
       what:'Jacobian supports wake phrases, typed/microphone/tray/overlay entry and trusted opening of local resources, while separating language understanding from execution. Its tutor contains 51 sequenced modules across Java-to-industry full stack, Python-to-AI/ML/RAG and C-to-comprehensive DSA, with persistent progress, quizzes, planning, notes and study-library material.',
       tags:['Tauri 2','Rust','React','TypeScript','SQLite','Vosk','Gemini Optional'],
@@ -284,7 +284,7 @@
     jordan:{
       verification:'SOURCE PACK // VERIFIED',pack:'STATIC FRONTEND // LAB MODEL',boundary:'AUTHORIZED / SIMULATED ONLY',
       sourceMap:['index.html — single-page shell','app.js — seven-view command center and simulated assessment dataset','style.css — neon-yellow security-console visual system','app_server_check.py — local serving/runtime check','README.md — explicit frontend-only and no-real-scan scope'],
-      boundaries:['The shipped UI uses simulated local assessment data and does not perform real scanning.','No exploitation, credential attacks or persistence are implemented.','Target authorization is represented before reconnaissance in the workflow.','Deterministic rule evidence stays labeled separately from ML anomaly signals.','ML metrics are demonstration telemetry and do not prove compromise or exploitability.'],      code:'03.09 // SECURITY COMMAND CENTER',kicker:'AUTHORIZED LAB // SENTINEL ML AUDIT UI',title:'JORDAN',status:'SIMULATED // AUDIT',
+      boundaries:['The shipped UI uses simulated local assessment data and does not perform real scanning.','No exploitation, credential attacks or persistence are implemented.','Target authorization is represented before reconnaissance in the workflow.','Deterministic rule evidence stays labeled separately from ML anomaly signals.','ML metrics are demonstration telemetry and do not prove compromise or exploitability.'],      code:'02.09 // SECURITY COMMAND CENTER',kicker:'AUTHORIZED LAB // SENTINEL ML AUDIT UI',title:'JORDAN',status:'SIMULATED // AUDIT',
       lead:'A compact local-first frontend command center that visualizes an authorized security-assessment pipeline from target authorization through service inventory, deterministic rules, ML anomaly classification, findings and audit history.',
       what:'Jordan is intentionally a presentation/control layer rather than an offensive scanner. The shipped frontend uses simulated local assessment data for an authorized lab target and organizes it into Overview, Recon, Assets, Findings, ML Intelligence, Reports and Audit Log views. It demonstrates how evidence labels and model signals can stay visible throughout a security workflow.',
       tags:['Vanilla JavaScript','HTML','CSS','Nmap Model','Random Forest UI','Audit Trail'],
@@ -299,7 +299,7 @@
     onyx:{
       verification:'SOURCE PACK // VERIFIED',pack:'49 PACK FILES // NEXT.JS',boundary:'RLS + HUMAN MODERATION',
       sourceMap:['app/onyx-app.tsx — marketplace product UI and real-data states','lib/marketplace.ts — public/private marketplace projection','lib/request-security.ts — same-origin and request controls','lib/image-safety.ts — metadata removal and image hardening','lib/content-safety.ts + lib/alias-safety.ts — deterministic abuse checks','supabase/migrations/0004_marketplace_workflow_and_moderation.sql — protected workflow RPCs','supabase/migrations/0005_account_enforcement_and_ai_moderation.sql — enforcement and moderation layer'],
-      boundaries:['Supabase RLS/RPCs enforce authorization beyond client UI state.','Public projections exclude private contact details, precise location and internal identifiers.','Listing images are re-encoded to strip metadata and stored in a private bucket.','AI moderation is advisory; every new listing remains human-gated.','No analytics or advertising tracker is bundled into the application.'],      code:'03.10 // PRIVACY MARKETPLACE',kicker:'VERIFIED CAMPUS MARKETPLACE // PRIVACY-BY-DESIGN',title:'ONYX',status:'RLS // HUMAN GATE',
+      boundaries:['Supabase RLS/RPCs enforce authorization beyond client UI state.','Public projections exclude private contact details, precise location and internal identifiers.','Listing images are re-encoded to strip metadata and stored in a private bucket.','AI moderation is advisory; every new listing remains human-gated.','No analytics or advertising tracker is bundled into the application.'],      code:'02.10 // PRIVACY MARKETPLACE',kicker:'VERIFIED CAMPUS MARKETPLACE // PRIVACY-BY-DESIGN',title:'ONYX',status:'RLS // HUMAN GATE',
       lead:'A Vercel-ready campus marketplace for verified students that keeps public identity coarse, private interactions protected and moderation enforceable at the database boundary.',
       what:'ONYX supports sale and wanted listings, saved items, comparison, private offers, real-time messaging, reports, dashboard inventory and notifications. Public surfaces use aliases and coarse residence information; internal identifiers, precise location and direct contact are not projected publicly. New listings pass human approval, and AI moderation remains advisory rather than silently publishing or banning.',
       tags:['Next.js 16','React 19','TypeScript','Supabase','RLS','Realtime','Gemini Optional'],
@@ -314,22 +314,22 @@
     nccrp:{
       verification:'SUPPLIED IDENTITY + SYSTEM HISTORY',pack:'ORIGIN SYSTEM',boundary:'INVESTIGATOR REVIEW',
       sourceMap:['Transaction rows / account identifiers','Normalization of sender and receiver entities','Directional fund-flow links','Investigator-facing trace path','Operational lessons carried into RED Justice'],
-      boundaries:['The tool supports tracing; it does not make autonomous legal conclusions.','Fund-flow links remain reviewable against the original transaction records.','The portfolio keeps the origin system distinct from the later RED Justice expansion.'],      code:'03.11 // ORIGIN SYSTEM',kicker:'CYBER POLICE // FUND-FLOW INVESTIGATION UTILITY',title:'NCCRP FUND-FLOW TOOL',status:'ORIGIN // TRACE',
+      boundaries:['The tool supports tracing; it does not make autonomous legal conclusions.','Fund-flow links remain reviewable against the original transaction records.','The portfolio keeps the origin system distinct from the later RED Justice expansion.'],      code:'02.11 // ORIGIN SYSTEM',kicker:'CYBER POLICE // FUND-FLOW INVESTIGATION UTILITY',title:'NCRP FUND-FLOW TOOL',status:'ORIGIN // TRACE',
       lead:'The original internal investigation utility built to simplify bank-fraud transaction tracing during Cyber Police work, and the system seed that later expanded into RED Justice.',
-      what:'The NCCRP Fund-Flow Tool was created around a practical investigator problem: transaction chains become hard to follow when case data is spread across rows and accounts. The tool focused the workflow on following money movement, mapping linked accounts and keeping the path understandable enough for day-to-day fraud investigation.',
+      what:'The NCRP Fund-Flow Tool was created around a practical investigator problem: transaction chains become hard to follow when case data is spread across rows and accounts. The tool focused the workflow on following money movement, mapping linked accounts and keeping the path understandable enough for day-to-day fraud investigation.',
       tags:['Cybercrime','Financial Fraud','Fund Flow','Investigation Support','Origin System'],
       stats:[['TRACE','FUNDS'],['MAP','LINKS'],['CASE','SUPPORT'],['→','RED JUSTICE']],
       capabilities:['Transaction-centric tracing for bank-fraud investigation workflows.','Linked-account/fund-flow mapping intended to reduce manual path following.','Investigator-facing presentation rather than opaque autonomous conclusions.','Served as the architectural and product seed for the broader RED Justice platform.'],
       architecture:['Case Rows','Normalize','Account Links','Fund Flow','Analyst Trace','RED Justice'],
       architectureText:'The origin system stays deliberately narrower than RED Justice: receive investigation transaction data, normalize the relevant identifiers, map directional account/fund relationships and present the trail for analyst review.',
-      notes:['Built from a real operational need encountered during Cyber Police exposure.','The portfolio keeps this as a distinct origin artifact rather than rewriting history and pretending RED Justice appeared fully formed.','The supplied NCCRP visual is used directly as the project identity in this portfolio build.'],
+      notes:['Built from a real operational need encountered during Cyber Police exposure.','The portfolio keeps this as a distinct origin artifact rather than rewriting history and pretending RED Justice appeared fully formed.','The supplied NCRP visual is used directly as the project identity in this portfolio build.'],
       trace:['transaction rows → normalized records','sender / receiver → account nodes','movement → directional flow edge','linked flows → investigation path','operational lessons → RED Justice evolution'],
-      images:[['assets/projects/deep/nccrp-poster.png','NCCRP FUND-FLOW // FULL SYSTEM ART'],['assets/projects/deep/nccrp-mark.jpg','NCCRP // CARD MARK']]
+      images:[['assets/projects/deep/nccrp-poster.png','NCRP FUND-FLOW // FULL SYSTEM ART'],['assets/projects/deep/nccrp-mark.jpg','NCRP // CARD MARK']]
     },
     hydra:{
       verification:'SUPPLIED IDENTITY + SYSTEM DOSSIER',pack:'INTELLIGENCE LAYER',boundary:'SOURCE-LINKED CONTEXT',
       sourceMap:['Project sources and files','Asset / symbol extraction','Evidence and failure nodes','Relationship fabric','Retrieval packet','Bounded agent/model context'],
-      boundaries:['Hydra augments rather than replaces the source repository.','Retrieved facts preserve source provenance for verification.','Relationship-aware retrieval is intended to reduce unsupported guesses, not create hidden truth.','Downstream agents receive bounded context rather than unconstrained project access.'],      code:'03.12 // INTELLIGENCE LAYER',kicker:'SOURCE-LINKED PROJECT INTELLIGENCE',title:'HYDRA FABRIC',status:'INDEX // CORRELATE',
+      boundaries:['Hydra augments rather than replaces the source repository.','Retrieved facts preserve source provenance for verification.','Relationship-aware retrieval is intended to reduce unsupported guesses, not create hidden truth.','Downstream agents receive bounded context rather than unconstrained project access.'],      code:'02.12 // INTELLIGENCE LAYER',kicker:'SOURCE-LINKED PROJECT INTELLIGENCE',title:'HYDRA FABRIC',status:'INDEX // CORRELATE',
       lead:'A project-intelligence layer for mapping source-linked assets, symbols, evidence, failures and relationships before deeper model reasoning occurs.',
       what:'Hydra Fabric is the intelligence concept behind giving an agent more than a flat pile of files. It organizes project facts into a relationship fabric with source linkage so later reasoning can retrieve the relevant symbols, evidence and failure context while preserving where each piece of knowledge came from.',
       tags:['Project Intelligence','Source Linking','Relationships','Evidence','Retrieval','Agent Context'],
@@ -343,6 +343,9 @@
     }
   };
 
+  const additionalProjects=window.portfolioProjects||[];
+  Object.assign(projectDossiers,Object.fromEntries(additionalProjects.map(project=>[project.id,project])));
+
   const projectAccents={
     radixos:['#f6ff00','#00f5df','RADIX // SOURCE ID'],
     redjustice:['#ff4852','#f6ff00','RED // INVESTIGATION'],
@@ -354,10 +357,12 @@
     jacobian:['#ff7e00','#f6ff00','JACOBIAN // GUARDED LOCAL'],
     jordan:['#238bff','#ff8c00','JORDAN // AUTH LAB'],
     onyx:['#cacaca','#f6ff00','ONYX // PRIVACY'],
-    nccrp:['#f6ff00','#00f5df','NCCRP // ORIGIN'],
+    nccrp:['#f6ff00','#00f5df','NCRP // ORIGIN'],
     hydra:['#f6ff00','#00f5df','HYDRA // INTELLIGENCE']
   };
+  Object.assign(projectAccents,Object.fromEntries(additionalProjects.map(project=>[project.id,project.accent])));
   const projectDetail=$('#projectDetail');
+  projectDetail?.setAttribute('aria-labelledby','projectDetailTitle');
   const detailEls={
     code:$('#projectDetailCode'),image:$('#projectDetailImage'),mediaLabel:$('#projectDetailMediaLabel'),status:$('#projectDetailStatus'),gallery:$('#projectDetailGallery'),trace:$('#projectDetailTrace'),kicker:$('#projectDetailKicker'),title:$('#projectDetailTitle'),lead:$('#projectDetailLead'),tags:$('#projectDetailTags'),stats:$('#projectDetailStats'),what:$('#projectDetailWhat'),capabilities:$('#projectDetailCapabilities'),architecture:$('#projectDetailArchitecture'),architectureText:$('#projectDetailArchitectureText'),notes:$('#projectDetailNotes'),verification:$('#projectDetailVerification'),pack:$('#projectDetailPack'),boundary:$('#projectDetailBoundary'),sourceMap:$('#projectDetailSourceMap'),boundaries:$('#projectDetailBoundaries'),accentLabel:$('#projectDetailAccentLabel')
   };
@@ -391,6 +396,27 @@
     flashToast?.(`DOSSIER // ${d.title}`);
   };
   window.openProjectDetail=openProjectDetail;
+  const orbitRing=$('.project-orbit');
+  const movedProjects=[
+    {id:'visiontrace',cardName:'VISIONTRACE',role:'COMPUTER VISION',platform:'PYTHON + OPENCV',logo:projectDossiers.visiontrace.images[0][0]},
+    {id:'lowkie',cardName:'LOWKIE',role:'LOCAL LANGUAGE MODELS',platform:'PYTORCH + LORA',logo:projectDossiers.lowkie.images[0][0]}
+  ];
+  const orbitAdditions=[...movedProjects,...additionalProjects.filter(project=>!['morselab','luminary'].includes(project.id))];
+  orbitAdditions.forEach(project=>{
+    if(!orbitRing||$(`[data-project="${project.id}"]`,orbitRing))return;
+    const dossier=projectDossiers[project.id];
+    const accent=projectAccents[project.id][0].replace('#','');
+    const card=document.createElement('article');
+    card.className='orbit-project project-openable';
+    card.dataset.project=project.id;card.dataset.orbitName=project.cardName;card.dataset.orbitRole=project.role;
+    card.setAttribute('role','button');card.tabIndex=0;card.setAttribute('aria-label',`Open ${dossier.title} project dossier`);
+    card.style.setProperty('--card-rgb',[0,2,4].map(start=>parseInt(accent.slice(start,start+2),16)).join(','));
+    const face=document.createElement('div');face.className='orbit-project-face';
+    const image=document.createElement('img');image.src=project.logo;image.alt=`${dossier.title} logo`;image.loading='lazy';
+    const copy=document.createElement('div'),code=document.createElement('small'),name=document.createElement('strong'),role=document.createElement('span');
+    code.textContent=`${dossier.code.split(' // ')[0]} // ${project.platform}`;name.textContent=project.cardName;role.textContent=project.role;
+    copy.append(code,name,role);face.append(image,copy);card.append(face);orbitRing.append(card);
+  });
   $$('[data-project]').forEach(card=>{
     card.addEventListener('click',e=>{if(e.target.closest('a,button'))return;openProjectDetail(card.dataset.project)});
     card.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&!e.target.closest('a,button')){e.preventDefault();openProjectDetail(card.dataset.project)}});
@@ -409,13 +435,13 @@
   const commands=[
     ['Go // Sentinel Visual Lab','00.9',()=>location.hash='#sentinel'],
     ['Go // Music Visualizer','FM.09',()=>location.hash='#frequency'],
-    ['Go // Profile','01',()=>location.hash='#profile'],['Go // Fieldwork','02',()=>location.hash='#experience'],['Go // Builds','03',()=>location.hash='#projects'],['Go // Research','04',()=>location.hash='#research'],['Go // Proof','05',()=>location.hash='#credentials'],['Go // Contact','06',()=>location.hash='#contact'],
-    ['Inspect // RadixOS','03.01',()=>openProjectDetail('radixos')],['Inspect // RED Justice','03.02',()=>openProjectDetail('redjustice')],['Inspect // VisionTrace','03.03',()=>openProjectDetail('visiontrace')],['Inspect // LOWKIE','03.04',()=>openProjectDetail('lowkie')],
-    ['Inspect // Aureus Intelligence','03.05',()=>openProjectDetail('aureus')],['Inspect // AI Content Studio','03.06',()=>openProjectDetail('contentstudio')],['Inspect // Signal Desk','03.07',()=>openProjectDetail('signaldesk')],['Inspect // Jacobian','03.08',()=>openProjectDetail('jacobian')],['Inspect // Jordan','03.09',()=>openProjectDetail('jordan')],['Inspect // ONYX','03.10',()=>openProjectDetail('onyx')],['Inspect // NCCRP Fund-Flow','03.11',()=>openProjectDetail('nccrp')],['Inspect // Hydra Fabric','03.12',()=>openProjectDetail('hydra')],
+    ['Go // Profile','01',()=>location.hash='#profile'],['Go // Internship','04',()=>location.hash='#experience'],['Go // Projects','02',()=>location.hash='#projects'],['Go // Research','03',()=>location.hash='#research'],['Go // Proof','05',()=>location.hash='#credentials'],['Go // Contact','06',()=>location.hash='#contact'],
+    ...Object.entries(projectDossiers).sort(([,a],[,b])=>a.code.localeCompare(b.code)).map(([id,dossier])=>[`Inspect // ${dossier.title}`,dossier.code.split(' // ')[0],()=>openProjectDetail(id)]),
     ['Open // RadixOS Source','↗',()=>open('https://github.com/automatedcatso/RadixOS','_blank')],['Open // GitHub','↗',()=>open('https://github.com/automatedcatso','_blank')],['Open // LinkedIn','↗',()=>open('https://www.linkedin.com/in/aaryash-bhagankar-50079230a/','_blank')],['Toggle // OVERDRIVE','ROOT',toggleOverdrive]
   ];
   const palette=$('#commandPalette'),commandInput=$('#commandInput'),commandList=$('#commandList');let filtered=commands.slice(),selected=0;
-  const renderCommands=()=>{commandList.innerHTML='';filtered.forEach((c,i)=>{const b=document.createElement('button');b.className=`command-item${i===selected?' active':''}`;b.innerHTML=`<span>${c[0]}</span><small>${c[1]}</small>`;b.onclick=()=>{c[2]();palette.close()};commandList.appendChild(b)})};
+  palette?.setAttribute('aria-label','Command palette');commandInput?.setAttribute('aria-label','Search sections and project dossiers');
+  const renderCommands=()=>{commandList.innerHTML='';filtered.forEach((c,i)=>{const b=document.createElement('button');b.className=`command-item${i===selected?' active':''}`;b.innerHTML=`<span>${c[0]}</span><small>${c[1]}</small>`;b.onclick=()=>{c[2]();palette.close()};commandList.appendChild(b)});$('.command-item.active',commandList)?.scrollIntoView({block:'nearest'})};
   const openPalette=()=>{filtered=commands.slice();selected=0;commandInput.value='';renderCommands();palette.showModal();setTimeout(()=>commandInput.focus(),0)};$('#commandButton')?.addEventListener('click',openPalette);
   document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();palette.open?palette.close():openPalette()}if(e.key==='Escape'){lightbox?.open&&lightbox.close();gallery?.open&&gallery.close();projectDetail?.open&&projectDetail.close();palette?.open&&palette.close()}});
   commandInput?.addEventListener('input',()=>{const q=commandInput.value.trim().toLowerCase();filtered=commands.filter(c=>c[0].toLowerCase().includes(q));selected=0;renderCommands()});commandInput?.addEventListener('keydown',e=>{if(e.key==='ArrowDown'){e.preventDefault();selected=Math.min(filtered.length-1,selected+1);renderCommands()}if(e.key==='ArrowUp'){e.preventDefault();selected=Math.max(0,selected-1);renderCommands()}if(e.key==='Enter'&&filtered[selected]){e.preventDefault();filtered[selected][2]();palette.close()}});
@@ -460,6 +486,10 @@
   const orbitToggle=$('#orbitToggle');
   const orbitCoreName=$('#orbitCoreName');
   const orbitCoreRole=$('#orbitCoreRole');
+  const orbitCards=$$('.orbit-project',orbit||document);
+  const orbitPageSize=8;
+  const orbitPages=Math.max(1,Math.ceil(orbitCards.length/orbitPageSize));
+  let orbitPage=0;
   let orbitPaused=reduceMotion;
   const syncOrbitState=()=>{
     orbit?.classList.toggle('is-paused',orbitPaused);
@@ -467,10 +497,38 @@
   };
   syncOrbitState();
   orbitToggle?.addEventListener('click',()=>{orbitPaused=!orbitPaused;syncOrbitState()});
-  $$('.orbit-project').forEach(card=>{
+  const resetOrbitReadout=()=>{
+    if(orbitCoreName)orbitCoreName.textContent='SOURCE-TRACED';
+    if(orbitCoreRole)orbitCoreRole.textContent=`${orbitCards.length} SYSTEMS // PAGE ${orbitPage+1} OF ${orbitPages}`;
+  };
+  if(orbitRing&&orbitCards.length){
+    orbitRing.id='projectOrbitRing';
+    const navigation=document.createElement('nav');navigation.className='orbit-navigation';navigation.setAttribute('aria-label','Project ring pages');
+    const previous=document.createElement('button'),next=document.createElement('button'),status=document.createElement('span');
+    previous.type=next.type='button';previous.className=next.className='orbit-page-button';previous.id='orbitPrevious';next.id='orbitNext';
+    previous.textContent='← PREVIOUS';next.textContent='NEXT →';previous.setAttribute('aria-label','Previous project page');next.setAttribute('aria-label','Next project page');
+    previous.setAttribute('aria-controls',orbitRing.id);next.setAttribute('aria-controls',orbitRing.id);
+    status.id='orbitPageStatus';status.className='orbit-page-status';status.setAttribute('role','status');status.setAttribute('aria-live','polite');status.setAttribute('aria-atomic','true');
+    navigation.append(previous,status,next);$('.carousel-console-foot')?.append(navigation);
+    const renderOrbitPage=()=>{
+      const start=orbitPage*orbitPageSize,end=Math.min(start+orbitPageSize,orbitCards.length);
+      orbitCards.forEach((card,index)=>{card.hidden=index<start||index>=end;if(!card.hidden)card.style.setProperty('--index',index-start)});
+      orbitRing.style.setProperty('--quantity',end-start);
+      previous.disabled=orbitPage===0;next.disabled=orbitPage===orbitPages-1;
+      status.textContent=`PAGE ${orbitPage+1} / ${orbitPages} · ${start+1}–${end} OF ${orbitCards.length}`;
+      const readout=$('.orbit-readout span');if(readout)readout.textContent=`${orbitCards.length} NODES`;
+      const heading=$('.carousel-console-head span');if(heading)heading.textContent=`SYS://ORBIT_${orbitCards.length}`;
+      resetOrbitReadout();orbit?.scrollTo({left:0,behavior:'auto'});
+    };
+    previous.addEventListener('click',()=>{if(orbitPage>0){const focused=document.activeElement===previous;orbitPage--;renderOrbitPage();if(focused&&previous.disabled)next.focus()}});
+    next.addEventListener('click',()=>{if(orbitPage<orbitPages-1){const focused=document.activeElement===next;orbitPage++;renderOrbitPage();if(focused&&next.disabled)previous.focus()}});
+    renderOrbitPage();
+  }
+  orbitCards.forEach(card=>{
     const show=()=>{if(orbitCoreName)orbitCoreName.textContent=card.dataset.orbitName||'SYSTEM';if(orbitCoreRole)orbitCoreRole.textContent=card.dataset.orbitRole||'OPEN DOSSIER'};
-    const reset=()=>{if(orbitCoreName)orbitCoreName.textContent='SOURCE-TRACED';if(orbitCoreRole)orbitCoreRole.textContent='08 SYSTEMS // LIVE INDEX'};
-    card.addEventListener('pointerenter',show);card.addEventListener('focus',show);card.addEventListener('pointerleave',reset);card.addEventListener('blur',reset);
+    const focus=()=>{show();const visible=orbitCards.filter(item=>!item.hidden);if(orbitRing&&visible.length){orbitRing.style.animation='none';orbitRing.style.transform=`translate(-50%,-50%) rotateX(-10deg) rotateY(${-360*visible.indexOf(card)/visible.length}deg)`}};
+    const blur=()=>{if(orbitRing){orbitRing.style.animation='';orbitRing.style.transform=''}resetOrbitReadout()};
+    card.addEventListener('pointerenter',show);card.addEventListener('focus',focus);card.addEventListener('pointerleave',resetOrbitReadout);card.addEventListener('blur',blur);
   });
 
 })();

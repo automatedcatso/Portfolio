@@ -1,42 +1,56 @@
 # Aaryash Bhagankar
 
-**Machine Learning · Software Development · Cybersecurity**
+**Applied machine learning · software development · data analysis**
 
-I’m Aaryash, an engineering student based in Chennai, India. I build local AI systems, developer tools, and software that makes complex work easier to understand and control. My main interests are machine learning, model development, and practical applications of AI. Cybersecurity and digital forensics are another important part of my work.
+Portfolio: [ab07folio.vercel.app](https://ab07folio.vercel.app).
 
-## ML and development
+I am a B.Tech Computer Science and Engineering student at SRMIST, KTR Campus, with expected graduation in 2029 and a current CGPA of 8.42/10. I build tools for hand-gesture input, local AI workflows and data analysis. My Nashik Cyber Police internship is supporting experience in fund-flow tracing and digital evidence.
 
-I like working across the full path from an idea to a usable system: preparing data, training or adapting models, building the application around them, and checking how they behave in practice.
+## Selected work
 
-- **LOWKIE** is my local model workbench for datasets, training recipes, transformer runs, checkpoints, and inference.
-- **[RadixOS](https://github.com/automatedcatso/RadixOS)** is a local-first Windows AI command environment with project intelligence, persistent memory, scoped tools, and human approval gates.
-- **Jacobian** explores local AI and tutoring workflows.
-- **AI Content Studio** explores media automation.
+- **MORSELAB:** Turns webcam hand gestures into Morse code using an Arduino LED. Implements KNN, SVM, Random Forest and MLP, saved experiments and separate-session evaluation workflows.
+- **Luminary:** Records light-sensor signals and trains local models for optical-gesture experiments. Sample-data results are explicitly synthetic demonstrations.
+- **RadixOS:** Runs multiple AI assistants on separate copies of a coding project, with 2-8 parallel assistant tasks and locally saved project history.
+- **RED Justice:** Links people, documents and bank transactions to help trace fraud. It grew from an internal fund-flow tracing tool built during my Nashik Cyber Police internship.
 
-I’ve also built Aureus Intelligence, Signal Desk, Jordan, ONYX, and Hydra Fabric. Across these projects, I enjoy connecting Python and TypeScript applications with local models, useful interfaces, and clear control over what a system can do.
+The circular browser contains 19 further entries and shows up to eight cards per page. Keyboard navigation, pause/resume and project dialogs work across all 23 entries. Archive revisions are consolidated. VoiceStudio is a third-party application and is not listed as an authored project. The celebration case study is generic; personal photos and messages are not published.
 
-## Research
+## Research preparation
 
-I’m exploring **AI-driven energy management for smart supercapacitor-powered IoT networks**. The research looks at how adaptive control can balance available energy and workload demand on resource-constrained devices.
+Under Dr. Preethiya at SRMIST, I prepared an 81-reference literature review on predicting supercapacitor capacitance from electrode composition and checked 22 electrochemical measurement curves for missing or invalid data. These are review and data-audit outputs.
 
-## Cybersecurity and digital forensics
+## Evaluation scope
 
-Security work taught me to value evidence and traceability. I’m interested in cybercrime investigation, financial-fraud analysis, DFIR, OSINT, and application security.
+RED Justice's score is an **alias-linking component test**, not end-to-end extraction performance. On 172 synthetic name pairs, including nine positives: TP 9, FP 4, FN 0, TN 159; precision 69.2%, recall 100%, F1 0.818. Input names come from benchmark ground truth, so extraction errors are outside this result. The four false links involve ambiguous names.
 
-During my **Cyber Crime Investigation & Digital Forensics internship at Nashik City Cyber Police** (17 June – 18 July 2026), I gained exposure to investigations, digital forensics, fraud analysis, and Legal Department coordination. I built an **NCCRP fund-flow analysis tool** to help with transaction tracing. That work became the starting point for **RED Justice**, an offline-first platform for entity relationships, money-flow graphs, and traceable evidence. I received a Letter of Recommendation from the Senior Police Inspector for my technical contribution.
+No within-session perfect gesture score is presented as cross-session performance. Prototype stages and synthetic demonstrations are identified in project dialogs.
 
-**VisionTrace** is another forensic build: a local-first video evidence tool for tracking, reconstruction, and scene graphs with transparent event logic.
+## Certificates and resumes
 
-## Background
+- H7CTF 2026 finalist, team rank 9th. The 722-team field is for the **qualifiers**; the displayed certificate records qualifier participation.
+- kBxAc CTF 2026: rank 23 of 290 teams.
+- Securinets CTF 2026 qualifiers: 77th International and 87th overall, seven challenges and 2,435 points.
+- SIH 2026 internal hackathon finalist; Yukthi CTF finalist.
 
-I’m pursuing a B.Tech at **SRM Institute of Science and Technology** and studying at the **foundation level of IIT Madras’s BS program**. I learn by building projects, taking part in CTFs and hackathons, and testing ideas outside coursework.
+[ML research resume](assets/documents/Aaryash_Bhagankar_AI_ML_Resume_2026.pdf) · [Engineering/security resume](assets/documents/Aaryash_Bhagankar_Engineering_Security_Resume_2026.pdf)
 
-My portfolio includes P3rf3ctr00t CTF, ByteBeat, Confluence 1.0, and the Digital Twins hackathon. I won **second prize in Reuse & Remodel Product** and have been involved with **GitHub Community SRM**.
+The legacy resume URL also serves the current ML version. Certificates are under `assets/credentials/`.
 
-**Tools:** Python · TypeScript · JavaScript · Node.js · Electron · Linux · FastAPI · OpenCV · SQLite · PyTorch · Git
+## Run and check
 
-## Let’s connect
+This static site uses Node.js 24 and built-in modules; no runtime package installation is required.
 
-I’m open to ML, software development, applied AI research, and cybersecurity collaborations.
+```sh
+node scripts/dev.mjs . 3000
+node --check app.js
+node --check assets/data/projects.js
+node scripts/validate.mjs
+node scripts/build.mjs
+node scripts/dev.mjs dist 4173
+```
 
-[GitHub](https://github.com/automatedcatso) · [LinkedIn](https://www.linkedin.com/in/aaryash-bhagankar-50079230a/) · [Email](mailto:ceazerdrocks@gmail.com) · [Resume](assets/documents/Aaryash_Bhagankar_Resume.pdf)
+The build writes `dist/`, which Vercel serves using `vercel.json`. Browser checks cover project dialogs, all circle pages, mobile navigation, certificate previews and resume downloads.
+
+## Contact
+
+[aaryashbh@gmail.com](mailto:aaryashbh@gmail.com) · [GitHub](https://github.com/automatedcatso) · [LinkedIn](https://www.linkedin.com/in/aaryash-bhagankar-50079230a/)

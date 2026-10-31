@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title desc">
+  <title id="title">Supercapacitor electrode materials research</title>
+  <desc id="desc">An illustrative pair of porous electrodes, electrolyte ions and an electrochemical measurement curve. This diagram does not represent experimental results.</desc>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="160" cy="160" r="141" stroke="#20f6df" stroke-width="1.5" opacity=".22"/>
+    <path d="M44 113h58m116 0h58" stroke="#20f6df" stroke-width="4"/>
+    <circle cx="44" cy="113" r="6" fill="#20f6df" stroke="none"/>
+    <circle cx="276" cy="113" r="6" fill="#20f6df" stroke="none"/>
+    <rect x="102" y="59" width="30" height="108" rx="5" fill="#f5ff3b" fill-opacity=".08" stroke="#f5ff3b" stroke-width="4"/>
+    <rect x="188" y="59" width="30" height="108" rx="5" fill="#f5ff3b" fill-opacity=".08" stroke="#f5ff3b" stroke-width="4"/>
+    <g fill="#f5ff3b" stroke="none">
+      <circle cx="112" cy="76" r="3"/><circle cx="122" cy="91" r="3"/><circle cx="112" cy="106" r="3"/><circle cx="122" cy="121" r="3"/><circle cx="112" cy="136" r="3"/><circle cx="122" cy="151" r="3"/>
+      <circle cx="198" cy="76" r="3"/><circle cx="208" cy="91" r="3"/><circle cx="198" cy="106" r="3"/><circle cx="208" cy="121" r="3"/><circle cx="198" cy="136" r="3"/><circle cx="208" cy="151" r="3"/>
+    </g>
+    <g stroke="#20f6df" stroke-width="2.5">
+      <circle cx="153" cy="77" r="6"/><circle cx="170" cy="101" r="6"/><circle cx="150" cy="125" r="6"/><circle cx="170" cy="150" r="6"/>
+      <path d="M150 77h6m14 21v6m-3-3h6m-26 24h6m17 22v6m-3-3h6"/>
+    </g>
+    <path d="M69 207v62h183" stroke="#20f6df" stroke-width="2.5" opacity=".65"/>
+    <path d="M84 253c14-2 22-25 39-31s26 22 43 19 21-30 39-28 20 11 34 7" stroke="#f5ff3b" stroke-width="4"/>
+    <path d="M69 225h183m-183 22h183" stroke="#20f6df" stroke-width="1" opacity=".14"/>
+    <circle cx="123" cy="222" r="4" fill="#20f6df" stroke="none"/>
+    <circle cx="205" cy="213" r="4" fill="#20f6df" stroke="none"/>
+  </g>
+</svg>

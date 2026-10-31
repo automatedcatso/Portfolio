@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">EnvStorm icon</title>
+  <desc id="desc">A warm amber lightning bolt inside a dark terminal tile, with two opposing focus corners.</desc>
+  <rect x="8" y="8" width="240" height="240" rx="56" fill="#151710" stroke="#424837" stroke-width="4"/>
+  <path d="m137 44-74 99h56l-17 68 93-118h-58V44Z" fill="#efb546"/>
+  <path d="M45 86V45h41M170 211h41v-41" fill="none" stroke="#a1ae90" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

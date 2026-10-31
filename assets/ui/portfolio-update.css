@@ -1,0 +1,12 @@
+.morse-brand-stage{background:radial-gradient(ellipse at center,rgba(195,223,158,.14),transparent 65%)}
+.morse-brand-stage .monitor-shell{background:#111512;border-color:rgba(195,223,158,.36);width:min(420px,86%)}
+.morse-brand-stage .monitor-shell img{width:65%;height:210px;object-fit:contain;margin:16px auto}
+.morse-brand-stage .hud-tag{color:#c3df9e;border-color:rgba(195,223,158,.25)}
+.luminary-feature{background:radial-gradient(circle,rgba(116,210,214,.14),#0b1218 72%)}
+.luminary-feature img{width:48%;height:70%;object-fit:contain}
+.radix-feature{background:radial-gradient(circle,rgba(246,255,0,.1),#080a06 72%)}
+.radix-feature img{width:64%;height:70%;object-fit:contain}
+.certificate-complete img{object-fit:contain!important}
+.resume-options{display:flex;gap:12px;flex-wrap:wrap;color:var(--acid);font-size:13px}
+.resume-options a{text-decoration:underline;text-underline-offset:4px}
+.capability p{text-transform:none}
