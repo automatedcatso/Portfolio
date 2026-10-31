@@ -7,6 +7,27 @@
 .radix-feature{background:radial-gradient(circle,rgba(246,255,0,.1),#080a06 72%)}
 .radix-feature img{width:64%;height:70%;object-fit:contain}
 .certificate-complete img{object-fit:contain!important}
+.detail-hero-media>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 .resume-options{display:flex;gap:12px;flex-wrap:wrap;color:var(--acid);font-size:13px}
 .resume-options a{text-decoration:underline;text-underline-offset:4px}
 .capability p{text-transform:none}
+.frequency-modes button{min-height:44px}
+.neural-nav-button{display:flex;align-items:center;justify-content:center;gap:7px;min-width:58px;min-height:44px;padding:0 10px;background:rgba(93,184,166,.07);border:1px solid rgba(126,220,196,.24);color:#a5dfcc;cursor:pointer}
+.neural-nav-button span{font:21px var(--mono)}
+.neural-nav-button b{font:7px var(--mono);letter-spacing:.08em}
+.neural-nav-button:hover{background:rgba(126,220,196,.15);border-color:#9fddc4}
+.neural-nav-button:focus-visible{outline:2px solid #a5dfcc;outline-offset:3px}
+@media(max-width:480px){.neural-nav-button{min-width:44px;padding:0 7px}.neural-nav-button b{display:none}.top-actions{gap:8px}}
+.command-head{align-items:center}
+#commandClose{min-width:60px;min-height:44px;background:#10130b;border:1px solid rgba(246,255,0,.2);color:var(--acid);font:9px var(--mono);cursor:pointer}
+#commandClose:focus-visible{outline:2px solid var(--acid);outline-offset:3px}
+[data-project="morselab"]{--card-accent:195,223,158;--card-accent-hex:#c3df9e}
+[data-project="luminary"]{--card-accent:88,216,239;--card-accent-hex:#58d8ef}
+.project-openable:hover,.project-openable:focus-visible{border-color:rgba(var(--card-accent,246,255,0),.6)}
+.morse-brand-stage .monitor-shell img{width:78%;height:230px}
+.luminary-feature img{width:69%;height:86%}
+@media(prefers-reduced-motion:no-preference){
+  .project-art img,.morse-brand-stage .monitor-shell img{transition:transform .65s cubic-bezier(.2,.8,.2,1),filter .65s ease}
+  [data-project="morselab"]:is(:hover,:focus-visible) .monitor-shell img{transform:translateY(-5px) rotate(-2deg);filter:drop-shadow(0 9px 18px rgba(195,223,158,.2))}
+  [data-project="luminary"]:is(:hover,:focus-visible) .project-art img{transform:translateY(-5px) rotate(3deg);filter:drop-shadow(0 9px 18px rgba(88,216,239,.2))}
+}

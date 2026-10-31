@@ -36,6 +36,12 @@ No within-session perfect gesture score is presented as cross-session performanc
 
 The legacy resume URL also serves the current ML version. Certificates are under `assets/credentials/`.
 
+## Interactive visuals
+
+Open **Neural Lab** from the terminal footer or command palette. It trains a deterministic logistic classifier on synthetic toy points locally in the browser. The rings preset and radial-feature control show why feature choice matters. Its loss values belong only to this demonstration. Reduced motion switches training to manual steps.
+
+The hero signal mesh can be held. The music visualizer has three selectable forms driven by the playing track's frequency spectrum; sound starts only through its controls. Visuals pause when hidden, held or offscreen. New MORSELAB and Luminary PNG marks and their generation prompts are in `assets/logos/`.
+
 ## Run and check
 
 This static site uses Node.js 24 and built-in modules; no runtime package installation is required.
@@ -45,6 +51,9 @@ node scripts/dev.mjs . 3000
 node --check app.js
 node --check assets/data/projects.js
 node scripts/validate.mjs
+node scripts/test-projects.mjs
+node scripts/test-ml-lab.mjs
+node scripts/test-ambience.mjs
 node scripts/build.mjs
 node scripts/dev.mjs dist 4173
 ```

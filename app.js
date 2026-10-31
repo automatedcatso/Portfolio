@@ -10,10 +10,10 @@
   const bootProgress = $('#bootProgress');
   const bootPercent = $('#bootPercent');
   const bootSteps = [
-    '[OK] mounting <b>operator-profile</b>',
+    '[OK] loading <b>local-workbench</b>',
     '[OK] indexing <b>project-artifacts</b>',
-    '[OK] verifying <b>evidence-chain</b>',
-    '[OK] loading <b>visual-overdrive</b>',
+    '[OK] preparing <b>neural-playground</b>',
+    '[OK] connecting <b>signal-visuals</b>',
     '[OK] interface ready'
   ];
   let bootValue = 0;
@@ -92,8 +92,10 @@
   const mctx = matrix?.getContext('2d');
   let drops=[];
   const resizeMatrix=()=>{if(!matrix||!mctx)return;const dpr=Math.min(devicePixelRatio||1,1.3);matrix.width=innerWidth*dpr;matrix.height=innerHeight*dpr;matrix.style.width=`${innerWidth}px`;matrix.style.height=`${innerHeight}px`;mctx.setTransform(dpr,0,0,dpr,0,0);drops=Array(Math.ceil(innerWidth/18)).fill(1)};
-  const drawMatrix=()=>{if(!mctx||reduceMotion)return;mctx.fillStyle='rgba(5,6,5,.09)';mctx.fillRect(0,0,innerWidth,innerHeight);mctx.font='11px monospace';drops.forEach((y,i)=>{const c=Math.random()>.5?'1':'0';mctx.fillStyle='rgba(246,255,0,.36)';mctx.fillText(c,i*18,y*18);if(y*18>innerHeight&&Math.random()>.975)drops[i]=0;drops[i]++});requestAnimationFrame(drawMatrix)};
-  resizeMatrix(); if (!reduceMotion) drawMatrix(); addEventListener('resize',resizeMatrix,{passive:true});
+  let matrixFrame=0;
+  const drawMatrix=()=>{matrixFrame=0;if(!mctx||reduceMotion||document.hidden||!document.body.classList.contains('overdrive'))return;mctx.fillStyle='rgba(5,6,5,.09)';mctx.fillRect(0,0,innerWidth,innerHeight);mctx.font='11px monospace';drops.forEach((y,i)=>{const c='01∇σθλwx'[Math.floor(Math.random()*8)];mctx.fillStyle='rgba(246,255,0,.36)';mctx.fillText(c,i*18,y*18);if(y*18>innerHeight&&Math.random()>.975)drops[i]=0;drops[i]++});matrixFrame=requestAnimationFrame(drawMatrix)};
+  const syncMatrix=()=>{cancelAnimationFrame(matrixFrame);matrixFrame=0;if(!reduceMotion&&!document.hidden&&document.body.classList.contains('overdrive'))matrixFrame=requestAnimationFrame(drawMatrix)};
+  resizeMatrix(); addEventListener('resize',resizeMatrix,{passive:true});document.addEventListener('visibilitychange',syncMatrix);
 
   // Illustrative ML workflow: these lines are interface copy, not live experiment results.
   const terminalDynamic = $('#terminalDynamic');
@@ -427,12 +429,13 @@
   // Toast + overdrive easter eggs.
   const toast=$('#systemToast'),easterOverlay=$('#easterOverlay');let toastTimer;
   const flashToast=(message)=>{if(!toast)return;toast.querySelector('b').textContent=message;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),1900)};
-  const toggleOverdrive=()=>{const active=document.body.classList.toggle('overdrive');flashToast(active?'OVERDRIVE // ARMED':'OVERDRIVE // DISARMED')};
+  const toggleOverdrive=()=>{const active=document.body.classList.toggle('overdrive');syncMatrix();flashToast(active?'NEURAL OVERDRIVE // ARMED':'NEURAL OVERDRIVE // DISARMED')};
   let brandClicks=[];$('#brandTrigger')?.addEventListener('click',()=>{const now=Date.now();brandClicks=brandClicks.filter(t=>now-t<2200);brandClicks.push(now);if(brandClicks.length>=5){brandClicks=[];toggleOverdrive()}});
   const konami=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];let ki=0;document.addEventListener('keydown',e=>{const key=e.key.length===1?e.key.toLowerCase():e.key;if(key===konami[ki]){ki++;if(ki===konami.length){ki=0;toggleOverdrive();easterOverlay?.classList.add('show');easterOverlay?.setAttribute('aria-hidden','false');setTimeout(()=>{easterOverlay?.classList.remove('show');easterOverlay?.setAttribute('aria-hidden','true')},2400)}}else ki=key===konami[0]?1:0});
 
   // Command palette.
   const commands=[
+    ['Open // Neural Playground','ML',()=>setTimeout(()=>window.openNeuralLab?.(),0)],
     ['Go // Sentinel Visual Lab','00.9',()=>location.hash='#sentinel'],
     ['Go // Music Visualizer','FM.09',()=>location.hash='#frequency'],
     ['Go // Profile','01',()=>location.hash='#profile'],['Go // Internship','04',()=>location.hash='#experience'],['Go // Projects','02',()=>location.hash='#projects'],['Go // Research','03',()=>location.hash='#research'],['Go // Proof','05',()=>location.hash='#credentials'],['Go // Contact','06',()=>location.hash='#contact'],
@@ -441,6 +444,8 @@
   ];
   const palette=$('#commandPalette'),commandInput=$('#commandInput'),commandList=$('#commandList');let filtered=commands.slice(),selected=0;
   palette?.setAttribute('aria-label','Command palette');commandInput?.setAttribute('aria-label','Search sections and project dossiers');
+  $('#commandClose')?.addEventListener('click',()=>palette.close());
+  palette?.addEventListener('click',event=>{if(event.target===palette)palette.close()});
   const renderCommands=()=>{commandList.innerHTML='';filtered.forEach((c,i)=>{const b=document.createElement('button');b.className=`command-item${i===selected?' active':''}`;b.innerHTML=`<span>${c[0]}</span><small>${c[1]}</small>`;b.onclick=()=>{c[2]();palette.close()};commandList.appendChild(b)});$('.command-item.active',commandList)?.scrollIntoView({block:'nearest'})};
   const openPalette=()=>{filtered=commands.slice();selected=0;commandInput.value='';renderCommands();palette.showModal();setTimeout(()=>commandInput.focus(),0)};$('#commandButton')?.addEventListener('click',openPalette);
   document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();palette.open?palette.close():openPalette()}if(e.key==='Escape'){lightbox?.open&&lightbox.close();gallery?.open&&gallery.close();projectDetail?.open&&projectDetail.close();palette?.open&&palette.close()}});

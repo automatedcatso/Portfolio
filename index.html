@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="assets/ui/cyberpunk.css" />
   <link rel="stylesheet" href="assets/ui/ambience.css" />
   <link rel="stylesheet" href="assets/ui/portfolio-update.css" />
+  <link rel="stylesheet" href="assets/ui/ml-lab.css" />
 </head>
 <body>
   <div class="boot" id="boot" aria-hidden="true">
@@ -47,6 +48,7 @@
     </nav>
 
     <div class="top-actions">
+      <button type="button" class="neural-nav-button magnetic" id="neuralLabButton" aria-label="Open Neural Lab" title="Train a toy model"><span aria-hidden="true">∑</span><b>LAB</b></button>
       <button class="key-button magnetic" id="commandButton" aria-label="Open command palette"><kbd>⌘</kbd><span>K</span></button>
       <a class="resume-button magnetic" href="assets/documents/Aaryash_Bhagankar_AI_ML_Resume_2026.pdf" target="_blank" rel="noreferrer">RESUME <b>↗</b></a>
     </div>
@@ -234,10 +236,10 @@
           <div class="tags"><span>Python</span><span>scikit-learn</span><span>MediaPipe</span><span>Arduino</span></div>
           <span class="acid-button small">OPEN PROJECT ↗</span>
         </div>
-        <div class="flagship-visual morse-brand-stage"><div class="monitor-shell"><div class="monitor-top"><i></i><i></i><i></i><span>MORSELAB // HAND GESTURES TO MORSE</span></div><img src="assets/logos/morselab.svg" alt="MORSELAB sage m-colon brand mark" /></div><div class="hud-tag tag-a">WEBCAM // LANDMARKS</div><div class="hud-tag tag-b">ARDUINO // MORSE OUTPUT</div></div>
+        <div class="flagship-visual morse-brand-stage"><div class="monitor-shell"><div class="monitor-top"><i></i><i></i><i></i><span>MORSELAB // HAND GESTURES TO MORSE</span></div><img src="assets/logos/morselab-v2.png" alt="MORSELAB hand gesture and Morse signal logo" /></div><div class="hud-tag tag-a">WEBCAM // LANDMARKS</div><div class="hud-tag tag-b">ARDUINO // MORSE OUTPUT</div></div>
       </article>
       <div class="project-grid">
-        <article class="project-card panel reveal project-openable" data-tilt data-project="luminary" role="button" tabindex="0" aria-label="Open Luminary project dossier"><div class="project-card-head"><span>02.02</span><b>SENSOR DATA + ML</b></div><div class="project-art luminary-feature"><img src="assets/logos/luminary.svg" alt="Luminary cyan and amber optical diamond mark" /></div><div class="project-body"><small>OPTICAL SENSING EXPERIMENTS</small><h3>LUMINARY</h3><p>Records light-sensor signals and trains local models for optical gesture experiments.</p><div class="tags"><span>Python</span><span>PyTorch</span><span>scikit-learn</span><span>Arduino</span></div></div></article>
+        <article class="project-card panel reveal project-openable" data-tilt data-project="luminary" role="button" tabindex="0" aria-label="Open Luminary project dossier"><div class="project-card-head"><span>02.02</span><b>SENSOR DATA + ML</b></div><div class="project-art luminary-feature"><img src="assets/logos/luminary-v2.png" alt="Luminary optical sensing and light wave logo" /></div><div class="project-body"><small>OPTICAL SENSING EXPERIMENTS</small><h3>LUMINARY</h3><p>Records light-sensor signals and trains local models for optical gesture experiments.</p><div class="tags"><span>Python</span><span>PyTorch</span><span>scikit-learn</span><span>Arduino</span></div></div></article>
         <article class="project-card panel reveal project-openable" data-tilt data-delay="60" data-project="radixos" role="button" tabindex="0" aria-label="Open RadixOS project dossier"><div class="project-card-head"><span>02.03</span><b>AI CODING WORKSPACE</b></div><div class="project-art radix-feature"><img src="assets/projects/deep/radixos-source-mark.svg" alt="RadixOS main brand mark" /></div><div class="project-body"><small>PARALLEL AI ASSISTANTS</small><h3>RADIXOS</h3><p>Runs multiple AI assistants on separate copies of a coding project.</p><div class="tags"><span>Electron</span><span>Node.js</span><span>SQLite</span><span>MCP</span></div></div></article>
         <article class="project-card panel reveal project-openable" data-tilt data-delay="120" data-project="redjustice" role="button" tabindex="0" aria-label="Open RED Justice project dossier"><div class="project-card-head"><span>02.04</span><b>DOCUMENT + DATA ANALYSIS</b></div><div class="project-art red-art"><img src="assets/projects/red-justice-logo.png" alt="RED Justice logo" /><div class="radar-lines"></div></div><div class="project-body"><small>INVESTIGATION RECORDS</small><h3>RED JUSTICE</h3><p>Links people, documents and bank transactions to help trace fraud.</p><div class="tags"><span>Prisma</span><span>SQLite</span><span>OCR</span></div></div></article>
       </div>
@@ -340,11 +342,12 @@
       <div class="section-background bg-samurai" aria-hidden="true"></div>
       <header class="section-heading reveal">
         <div class="section-number">05</div>
-        <div class="heading-copy"><small>PROOF OF WORK</small><h2>CREDENTIALS // <em>CTF SIGNAL.</em></h2></div>
+        <div class="heading-copy"><small>PROOF OF WORK</small><h2>HACKATHONS // <em>CREDENTIALS.</em></h2></div>
         <div class="heading-code">[ ARTIFACTS / VERIFIED ]</div>
       </header>
 
       <div class="credential-grid">
+        <button class="credential-card panel reveal" data-lightbox="assets/credentials/sih-internal-2026.png"><div class="credential-image landscape certificate-complete"><img src="assets/credentials/sih-internal-2026.png" alt="Aaryash Bhagankar's Smart India Hackathon 2026 Internal Edition participation certificate, SRMIST" loading="lazy" /></div><div class="credential-copy"><small>HACKATHON // SRMIST</small><h3>SIH INTERNAL FINALIST</h3><p>Smart India Hackathon 2026 internal hackathon finalist. Participation certificate for the 4–5 September event at SRMIST, Kattankulathur.</p><span>VIEW CERTIFICATE ↗</span></div></button>
         <button class="credential-card panel reveal" data-lightbox="assets/credentials/h7ctf-2026.png"><div class="credential-image landscape certificate-complete"><img src="assets/credentials/h7ctf-2026.png" alt="H7CTF 2026 qualifier participation certificate for Aaryash Bhagankar" loading="lazy" /></div><div class="credential-copy"><small>CTF // 2026</small><h3>H7CTF FINALIST</h3><p>Team rank 9th. The qualifiers had 722 teams. This artifact records participation in the 26-27 September qualifiers.</p><span>VIEW CERTIFICATE ↗</span></div></button>
         <button class="credential-card panel reveal" data-delay="45" data-lightbox="assets/credentials/kbxac-2026.png"><div class="credential-image landscape certificate-complete"><img src="assets/credentials/kbxac-2026.png" alt="kBxAc CTF 2026 certificate showing rank 23 for streetninjasn" loading="lazy" /></div><div class="credential-copy"><small>CTF // 10 OCT 2026</small><h3>kBxAc CTF 2026</h3><p>Rank 23 of 290 teams. Certificate issued to streetninjasn.</p><span>VIEW CERTIFICATE ↗</span></div></button>
         <button class="credential-card panel reveal" data-delay="90" data-lightbox="assets/credentials/securinets-2026.png"><div class="credential-image landscape certificate-complete"><img src="assets/credentials/securinets-2026.png" alt="Securinets CTF 2026 qualifier certificate: rank 77 International and 87 overall" loading="lazy" /></div><div class="credential-copy"><small>CTF // 17-18 OCT 2026</small><h3>SECURINETS 2026</h3><p>77th International and 87th overall. Team SW1P3R N0 SWIPING solved 7 challenges for 2,435 points.</p><span>VIEW CERTIFICATE ↗</span></div></button>
@@ -355,18 +358,18 @@
         <button class="credential-card panel reveal" data-delay="135" data-lightbox="assets/credentials/p3rf3ctr00t-ctf.png"><div class="credential-image landscape"><img src="assets/credentials/p3rf3ctr00t-ctf.png" alt="P3rf3ctr00t CTF certificate" /></div><div class="credential-copy"><small>CTF // 2025</small><h3>P3RF3CTR00T</h3><p>Capture The Flag // Team Sn3kBy7e.</p><span>VIEW ARTIFACT ↗</span></div></button>
         <button class="credential-card panel reveal" data-delay="180" data-lightbox="assets/credentials/bytebeat-ctf.png"><div class="credential-image landscape"><img src="assets/credentials/bytebeat-ctf.png" alt="ByteBeat 2025 CTF certificate" /></div><div class="credential-copy"><small>CTF // SRM IST</small><h3>BYTEBEAT 2025</h3><p>Capture The Flag participant.</p><span>VIEW ARTIFACT ↗</span></div></button>
         <button class="credential-card panel reveal" data-delay="225" data-lightbox="assets/credentials/confluence-1-hackathon.jpeg"><div class="credential-image landscape"><img src="assets/credentials/confluence-1-hackathon.jpeg" alt="Confluence 1.0 36-hour online hackathon certificate of participation" /></div><div class="credential-copy"><small>HACKATHON // 28–29 DEC 2025</small><h3>CONFLUENCE 1.0</h3><p>36-hour online hackathon hosted by The Helper on Unstop, focused on technical problem-solving, innovation and building under time pressure.</p><span>VIEW ARTIFACT ↗</span></div></button>
-        <article class="credential-signal panel reveal" data-delay="270"><div class="panel-label"><span>MORE ACHIEVEMENTS</span><b>INDEXED</b></div><div><b>SIH 2026</b><small>Internal hackathon finalist</small></div><div><b>YUKTHI CTF</b><small>Finalist</small></div><div><b>DEFCON CTF 2026</b><small>Participant</small></div><div><b>GITHUB COMMUNITY SRM</b><small>Technical community involvement</small></div><div><b>CYBER POLICE LOR</b><small>Formal recommendation from Senior Police Inspector</small></div></article>
+        <article class="credential-signal panel reveal" data-delay="270"><div class="panel-label"><span>MORE ACHIEVEMENTS</span><b>INDEXED</b></div><div><b>YUKTHI CTF</b><small>Finalist</small></div><div><b>DEFCON CTF 2026</b><small>Participant</small></div><div><b>GITHUB COMMUNITY SRM</b><small>Technical community involvement</small></div><div><b>CYBER POLICE LOR</b><small>Formal recommendation from Senior Police Inspector</small></div></article>
       </div>
     </section>
 
     <section id="frequency" class="section frequency-section" aria-labelledby="frequencyTitle" data-audio-ui>
       <div class="sector-divider" aria-hidden="true"><span>AFTER HOURS // FM.09</span><i></i><span>ACID FREQUENCIES</span><b>＋</b></div>
-      <header class="frequency-heading reveal"><div><small>THE SOUND OF THIS SPACE</small><h2 id="frequencyTitle">SOUND, GIVEN <em>STRUCTURE.</em></h2></div><p>A little architecture for your ears.<br> Three transmissions. One yellow frequency.</p></header>
+      <header class="frequency-heading reveal"><div><small>THE SOUND OF THIS SPACE</small><h2 id="frequencyTitle">SOUND, GIVEN <em>STRUCTURE.</em></h2></div><p>A sculpture of frequency, motion and light.<br>Choose a form, then press play.</p></header>
       <div class="frequency-console reveal">
         <div class="frequency-stage" id="frequencyStage">
           <div class="frequency-hud"><span><i></i> FREQUENCY ARCHITECTURE</span><b id="frequencyState">SIGNAL STANDBY</b></div>
           <div class="frequency-ghost" aria-hidden="true">FM<span>09</span></div>
-          <canvas id="frequencyCanvas" role="img" aria-label="Acid-yellow audio-reactive sculpture: geometric towers, an orbital lattice, and a waveform respond to the playing song."></canvas>
+          <canvas id="frequencyCanvas" role="img" aria-label="Audio-reactive sculpture with a latent field, neural torus and phase helix. The mesh and waveform respond to the playing track."></canvas>
           <div class="frequency-axis" aria-hidden="true">＋<span>SONIC<br>MONUMENT<br>001</span><i></i></div>
           <div class="frequency-stage-bottom"><span id="frequencyBands">LOW / MID / HIGH</span><button type="button" id="visualHold" aria-pressed="false">HOLD VISUAL</button><span>FORM FOLLOWS FREQUENCY</span></div>
         </div>
@@ -444,12 +447,12 @@
   </dialog>
 
   <dialog id="commandPalette" class="command-palette">
-    <div class="command-head"><span>COMMAND PALETTE // AB</span><kbd>ESC</kbd></div>
+    <div class="command-head"><span>COMMAND PALETTE // AB</span><button type="button" id="commandClose" aria-label="Close command palette">ESC ×</button></div>
     <input id="commandInput" autocomplete="off" placeholder="jump to section / open project / overdrive…" />
     <div id="commandList" class="command-list"></div>
   </dialog>
 
-  <div class="system-toast" id="systemToast" role="status" aria-live="polite"><span>SYS</span><b>OVERDRIVE ARMED</b></div>
+  <div class="system-toast" id="systemToast" role="status" aria-live="polite"><span>SYS</span><b>LOCAL LAB READY</b></div>
   <aside class="music-dock" data-audio-ui aria-label="Background music controls">
     <button type="button" data-music-toggle aria-label="Play background music"><span data-play-icon aria-hidden="true">▶</span></button>
     <a href="#frequency" aria-label="Open music visualizer and track selection"><small id="dockState">TUNE IN // FM.09</small><b id="dockTitle">Cyberpunk Metaverse Event</b></a>
@@ -463,5 +466,6 @@
   <script src="app.js"></script>
   <script src="assets/ui/cyberpunk.js"></script>
   <script src="assets/ui/ambience.js"></script>
+  <script src="assets/ui/ml-lab.js"></script>
 </body>
 </html>

@@ -1,0 +1,23 @@
+// Run: node scripts/test-ml-lab.mjs — actual model math, no DOM or dependencies.
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import vm from 'node:vm';
+const context = vm.createContext({});
+vm.runInContext(readFileSync('assets/ui/ml-lab.js', 'utf8'), context);
+const { makeDataset, createModel, loss, predict, step } = context.MLNeuralToy;
+const linear = makeDataset('linear'), repeat = makeDataset('linear');
+assert.equal(JSON.stringify(linear), JSON.stringify(repeat), 'Toy data must be deterministic');
+assert.equal(linear.length, 72);
+const a = createModel(), b = createModel(), before = loss(a, linear);
+step(a, linear, 300); step(b, repeat, 300);
+assert.equal(JSON.stringify(a), JSON.stringify(b), 'Training must be reproducible');
+assert.ok(loss(a, linear) < before * 0.35, 'Gradient descent must lower training loss');
+for (const point of linear) assert.ok(Number.isFinite(predict(a, point)) && predict(a, point) >= 0 && predict(a, point) <= 1);
+const rings = makeDataset('rings'), plain = createModel(), lifted = createModel(true);
+step(plain, rings, 700); step(lifted, rings, 700);
+assert.ok(loss(lifted, rings) < loss(plain, rings) * 0.45, 'Radial features must resolve the nonlinear toy pattern');
+assert.ok(lifted.weights.every(Number.isFinite));
+assert.ok(Number.isFinite(loss({ lifted: false, weights: [1e4, -1e4, 1e4] }, linear)), 'Loss must stay finite for extreme logits');
+assert.equal(step(createModel(), [], 25).iteration, 0);
+assert.throws(() => makeDataset('unsupported'), /Unknown toy dataset/);
+console.log('ML toy checks passed: deterministic data/training, falling loss, nonlinear feature lift and finite values.');

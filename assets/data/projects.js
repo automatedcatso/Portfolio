@@ -2,7 +2,7 @@
 window.portfolioProjects = [
   {
     id: 'morselab', title: 'MORSELAB', cardName: 'MORSELAB', role: 'GESTURES TO MORSE', platform: 'ML + ARDUINO',
-    logo: 'assets/logos/morselab.svg', accent: ['#a8c48d', '#dbe7c8', 'MORSELAB // HUMAN SIGNAL'],
+    logo: 'assets/logos/morselab-v2.png', accent: ['#a8c48d', '#dbe7c8', 'MORSELAB // HUMAN SIGNAL'],
     code: '02.01 // GESTURE RESEARCH', kicker: 'LOCAL GESTURE-TO-MORSE INSTRUMENT', status: 'RESEARCH PROTOTYPE',
     lead: 'Turns personal hand gestures into Morse messages and transmits them through an Arduino LED.',
     what: 'MORSELAB connects a webcam gesture recorder, a local classifier comparison workflow and a message composer. Users collect independent gesture sessions, compare models, confirm recognized characters and send a composed message to an Arduino Uno.',
@@ -16,11 +16,11 @@ window.portfolioProjects = [
     boundaries: ['Gesture performance depends on the user recordings and independent test sessions.', 'Camera processing stays local after setup.', 'Simulation is labeled separately from hardware output.', 'Servo motion is optional and is not presented as physically validated.'],
     notes: ['Classifier scores are uncalibrated model scores, not guaranteed probabilities.', 'The fixed-window dynamic recognizer is not continuous learned segmentation.', 'The project is a research instrument rather than a general-purpose sign-language translator.'],
     trace: ['independent sessions → labeled landmarks', 'training split → candidate models', 'validation → selected checkpoint', 'recognized gesture → confirmation', 'message → acknowledged LED output'],
-    images: [['assets/logos/morselab.svg', 'MORSELAB // PROJECT MARK']]
+    images: [['assets/logos/morselab-v2.png', 'MORSELAB // PROJECT MARK']]
   },
   {
     id: 'luminary', title: 'LUMINARY', cardName: 'LUMINARY', role: 'OPTICAL SENSING + ML', platform: 'TIME-SERIES ML',
-    logo: 'assets/logos/luminary.svg', accent: ['#58d8ef', '#a7f3df', 'LUMINARY // OPTICAL SIGNAL'],
+    logo: 'assets/logos/luminary-v2.png', accent: ['#58d8ef', '#a7f3df', 'LUMINARY // OPTICAL SIGNAL'],
     code: '02.02 // OPTICAL RESEARCH', kicker: 'LOCAL OPTICAL-SENSING WORKSTATION', status: 'RESEARCH PROTOTYPE',
     lead: 'Records two-channel light-sensor signals and compares local models for temporal patterns and anomalies.',
     what: 'Luminary brings sensor recording, dataset versions, model training, evaluation and deployed inference into one local workstation. It supports Arduino/LDR acquisition, replay and explicitly labeled synthetic demonstrations.',
@@ -34,7 +34,7 @@ window.portfolioProjects = [
     boundaries: ['Synthetic examples demonstrate the pipeline and do not establish physical accuracy.', 'Two LDRs capture temporal patterns rather than arbitrary static hand signs.', 'Hardware wiring and ambient-light performance require physical verification.'],
     notes: ['The shipped implementation includes training, evaluation, deployment and reporting.', 'Cross-domain multi-task learning and automated ablations are outside this release.', 'Session-grouped splits help keep recordings from one session out of multiple evaluation partitions.'],
     trace: ['sensor or replay → raw recording', 'recording → versioned dataset', 'independent sessions → split', 'model run → evaluation', 'checkpoint → local inference'],
-    images: [['assets/logos/luminary.svg', 'LUMINARY // PROJECT MARK']]
+    images: [['assets/logos/luminary-v2.png', 'LUMINARY // PROJECT MARK']]
   },
   {
     id: 'agamemnon', title: 'AGAMEMNON', cardName: 'AGAMEMNON', role: 'ACADEMIC PLANNING', platform: 'GEMINI + WEB',
