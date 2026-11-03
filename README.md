@@ -40,7 +40,7 @@ The legacy resume URL also serves the current ML version. Certificates are under
 
 Open **Neural Lab** from the terminal footer or command palette. It trains a deterministic logistic classifier on synthetic toy points locally in the browser. The rings preset and radial-feature control show why feature choice matters. Its loss values belong only to this demonstration. Reduced motion switches training to manual steps.
 
-The hero signal mesh can be held. The music visualizer has three selectable forms driven by the playing track's frequency spectrum; sound starts only through its controls. Visuals pause when hidden, held or offscreen. New MORSELAB and Luminary PNG marks and their generation prompts are in `assets/logos/`.
+The hero signal mesh can be held. The music stage contains one original wireframe dragon, rendered with native WebGL and a projected-canvas fallback. It breathes and moves its wings before audio starts; drag, keyboard rotation and zoom controls work directly. Music adds frequency-driven pulses. Motion pauses when hidden, held, offscreen or under reduced-motion settings; sound starts only through its controls. New MORSELAB and Luminary PNG marks and their generation prompts are in `assets/logos/`.
 
 ## Run and check
 
@@ -54,6 +54,7 @@ node scripts/validate.mjs
 node scripts/test-projects.mjs
 node scripts/test-ml-lab.mjs
 node scripts/test-ambience.mjs
+node scripts/test-dragon.mjs
 node scripts/build.mjs
 node scripts/dev.mjs dist 4173
 ```

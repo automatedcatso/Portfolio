@@ -1,4 +1,4 @@
-/* FM.09 — original sound architecture and precision pointer. */
+/* FM.09 — one interactive wireframe dragon and precision pointer. */
 @media(hover:hover) and (pointer:fine){
   html,body,body *{cursor:url('cursor-arrow.svg') 4 2,auto}
   a,a *,button,button *,[role="button"],[role="button"] *,summary{cursor:url('cursor-target.svg') 16 16,pointer}
@@ -19,7 +19,6 @@ body:has(dialog[open]) .cursor-reticle{opacity:0}
 .frequency-hud,.frequency-stage-bottom{position:absolute;z-index:3;left:24px;right:24px;display:flex;align-items:center;justify-content:space-between;gap:15px;color:#8d9572;font:8px var(--mono);letter-spacing:.1em}.frequency-hud{top:23px}.frequency-hud>span{display:flex;align-items:center;gap:8px;color:#c9ce9f}.frequency-hud i{width:5px;height:5px;background:var(--acid)}.frequency-hud b{font-weight:400;color:var(--acid)}
 .frequency-ghost,.frequency-axis{display:none}
 #frequencyCanvas{position:absolute;z-index:1;inset:0;width:100%;height:100%}
-.frequency-modes{position:absolute;z-index:5;top:19px;left:50%;transform:translateX(-50%);display:flex;gap:2px;padding:4px;border:1px solid rgba(192,218,178,.18);border-radius:99px;background:rgba(5,12,8,.68);backdrop-filter:blur(10px);white-space:nowrap}.frequency-modes button{min-height:36px;padding:9px 15px;border:0;border-radius:99px;background:transparent;color:#a3b7a7;font:8px var(--mono);letter-spacing:.07em;transition:color .18s,background .18s,box-shadow .18s}.frequency-modes button:hover{color:#e4f5dc;background:rgba(143,192,159,.1)}.frequency-modes button[aria-pressed="true"]{color:#14200d;background:#e2edac;box-shadow:0 2px 13px rgba(203,231,142,.1)}.frequency-modes button:focus-visible{outline:2px solid #77d8d4;outline-offset:3px}
 .frequency-hud{font-size:8px;letter-spacing:.075em}.frequency-hud>span{color:#a5b59d}.frequency-hud b{color:#cedbb8}.frequency-hud i{border-radius:50%;box-shadow:0 0 9px rgba(226,237,172,.35);background:#e2edac}
 .frequency-stage-bottom{bottom:21px;font-size:8px;letter-spacing:.045em;color:#91a58b}.frequency-stage-bottom>span:last-child{opacity:.55}.frequency-stage-bottom button{background:rgba(6,15,9,.82);border:1px solid rgba(204,226,173,.24);border-radius:99px;color:#d7e4c4;font:8px var(--mono);letter-spacing:.065em;padding:10px 15px}.frequency-stage-bottom button:hover{color:#f1fbdc;border-color:#82c9bc;background:rgba(41,74,55,.65)}
 .frequency-player{position:relative;border-top:1px solid rgba(246,255,0,.18);padding:26px 30px 16px;background:linear-gradient(120deg,rgba(246,255,0,.035),transparent 60%)}
@@ -39,7 +38,26 @@ body:has(dialog[open]) .cursor-reticle{opacity:0}
 .music-dock{transition:opacity .2s,transform .2s,visibility .2s}.music-dock.is-inline-visible{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(10px)}
 .music-dock small{font-size:8px;letter-spacing:.06em}
 @keyframes recordOrbit{to{transform:rotate(360deg)}}
-@media(max-width:980px){.frequency-heading{align-items:start;flex-direction:column;gap:15px}.frequency-heading p br{display:none}.frequency-stage{height:480px}.frequency-tracks{gap:5px}.frequency-tracks button{gap:9px;padding:12px 10px}.frequency-tracks i{display:none}.music-volume input{width:58px}.frequency-modes{top:48px}}
 @media(max-width:650px){.frequency-section{padding-top:60px;padding-bottom:55px}.frequency-heading h2{font-size:37px}.frequency-heading h2 em{display:block}.frequency-stage{height:330px}.frequency-hud{left:15px;right:15px;font-size:6px;top:17px}.frequency-axis{right:14px;font-size:12px}.frequency-axis span{font-size:5px}.frequency-ghost{left:15px;top:65px;font-size:100px}.frequency-stage-bottom{left:14px;right:14px;font-size:6px;gap:8px}.frequency-stage-bottom>span:last-child{display:none}.frequency-stage-bottom button{font-size:7px;padding:10px}.frequency-player{padding:22px 17px 17px}.frequency-current{gap:12px}.record-mark{flex-basis:45px;height:45px}.frequency-current h3{font-size:19px}.frequency-current p{font-size:7px}.frequency-current p span{display:none}.track-loop{font-size:24px}.music-transport{flex-wrap:wrap;gap:10px;margin:21px 0}.music-play{flex-basis:44px;height:44px}.music-volume{width:100%;border-left:0;border-top:1px solid rgba(246,255,0,.09);padding:13px 0 0;gap:12px}.music-volume input{width:auto;flex:1}.frequency-tracks{grid-template-columns:1fr;gap:6px}.frequency-tracks button{min-height:60px;padding:10px 13px;gap:14px}.frequency-tracks i{display:block}.frequency-tracks b{font-size:9px}.music-notice{font-size:6px}.music-dock{bottom:max(10px,env(safe-area-inset-bottom));right:12px;width:290px;gap:9px;padding:9px 10px}.music-dock>button{flex-basis:38px;height:38px}.music-dock .dock-open{padding:6px}.frequency-section>.sector-transmission{font-size:5px;gap:8px}.frequency-section>.sector-transmission .sector-barcode{display:none}}
-@media(max-width:650px){.frequency-stage{height:390px}.frequency-modes{top:42px;left:50%;gap:2px;max-width:calc(100% - 24px);padding:3px}.frequency-modes button{font-size:7px;letter-spacing:.025em;padding:8px 10px;min-height:40px}.frequency-hud{font-size:7px}.frequency-stage-bottom{bottom:15px;font-size:7px}.frequency-stage-bottom button{min-height:40px;padding:9px 12px}}
 @media(prefers-reduced-motion:reduce){.record-mark i{animation:none!important}.cursor-reticle{display:none!important}}
+
+/* Original dragon stage. Its anatomy and wire geometry are rendered in 3D. */
+@media(max-width:980px){.frequency-heading{align-items:start;flex-direction:column;gap:15px}.frequency-heading p br{display:none}.frequency-tracks{gap:5px}.frequency-tracks button{gap:9px;padding:12px 10px}.frequency-tracks i{display:none}.music-volume input{width:58px}}
+.frequency-stage{height:620px;background:radial-gradient(ellipse at 51% 47%,rgba(12,90,95,.23),transparent 52%),radial-gradient(ellipse at 50% 100%,rgba(104,120,37,.14),transparent 57%),#03080b}
+.frequency-stage:after{content:"";position:absolute;z-index:0;left:26%;right:26%;bottom:12%;height:13%;background:radial-gradient(ellipse,rgba(73,212,190,.15),transparent 68%);filter:blur(18px);pointer-events:none}
+#frequencyCanvas{cursor:grab;touch-action:pan-y;outline-offset:-7px}
+#frequencyCanvas.is-dragging{cursor:grabbing}
+#frequencyCanvas:focus-visible{outline:1px solid rgba(132,231,217,.7)}
+.dragon-signature{position:absolute;left:28px;bottom:91px;z-index:2;pointer-events:none;max-width:240px}
+.dragon-signature>span{color:#74c7c3;font:7px var(--mono);letter-spacing:.18em}
+.dragon-signature strong{display:block;margin-top:9px;color:#e0f1e6;font:700 27px/.95 var(--display);letter-spacing:-.035em}
+.dragon-signature strong span{display:inline-block;margin-left:9px;vertical-align:top;color:#9fbe60;font:9px var(--mono)}
+.dragon-signature p{max-width:200px;margin:10px 0 0;color:#799b98;font:8px/1.6 var(--mono)}
+.dragon-view-controls{position:absolute;z-index:4;right:24px;bottom:75px;display:flex;gap:5px;padding:5px;border:1px solid rgba(126,220,196,.15);border-radius:8px;background:rgba(4,15,19,.8);backdrop-filter:blur(12px)}
+.dragon-view-controls button{min-width:44px;min-height:44px;padding:0 11px;border:1px solid rgba(126,220,196,.12);border-radius:4px;color:#b9e4d9;background:rgba(61,139,131,.07);font:19px var(--mono);cursor:pointer;transition:background .2s,color .2s}
+.dragon-view-controls button:last-child{font-size:8px;letter-spacing:.08em}
+.dragon-view-controls button:hover{background:rgba(94,217,199,.16);color:#efffde}
+.dragon-view-controls button:focus-visible{outline:2px solid #b9e4d9;outline-offset:2px}
+@media(max-width:980px){.frequency-stage{height:560px}.dragon-signature{bottom:89px;left:23px}.dragon-signature strong{font-size:23px}.dragon-signature p{max-width:150px;font-size:7px}}
+@media(max-width:650px){.frequency-stage{height:500px}.dragon-signature{top:55px;left:18px;bottom:auto}.dragon-signature>span{font-size:6px}.dragon-signature strong{font-size:20px;margin-top:7px}.dragon-signature p{display:none}.dragon-view-controls{left:50%;right:auto;transform:translateX(-50%);bottom:61px}.frequency-stage-bottom{font-size:6px}.frequency-hud{font-size:6px}.dragon-view-controls button{min-width:44px;padding:0 9px}}
+@media(prefers-reduced-motion:reduce){.dragon-view-controls button{transition:none}}

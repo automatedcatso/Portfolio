@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 
 const created=[], observers=[], frames=new Map();
-let nextFrame=0,now=1000,draws=0,plays=0,stageWidth=1100,stageHeight=520,resizeCallback;
+let nextFrame=0,now=1000,draws=0,plays=0,stageWidth=1100,stageHeight=620,resizeCallback,lastPose;
 function element(id='') {
   const listeners={},attributes={};
   return { id,dataset:{},style:{},attributes,children:[],value:'0',textContent:'',
@@ -41,7 +41,7 @@ const document=Object.assign(element(),{hidden:false,body,documentElement:elemen
   querySelectorAll(selector){return ({'[data-track]':tracks,'[data-music-toggle]':toggles,'.dock-spectrum i':bars,'[data-play-icon]':icons})[selector]||[];},
   createElement(){const node=element();created.push(node);return node;},
 });
-const sandbox={console,document,navigator:{},window:{addEventListener(){}},devicePixelRatio:1,
+const sandbox={console,document,navigator:{},window:{addEventListener(){},createDragonSculpture(){return {kind:'test',resize:coordinates,render(time,state){coordinates(time,state.yaw,state.pitch,state.zoom,state.low);draws++;lastPose={time,...state};}};}},devicePixelRatio:1,
   matchMedia:query=>query.includes('prefers-reduced-motion')?reduced:fine,
   performance:{now:()=>now},requestAnimationFrame:callback=>{frames.set(++nextFrame,callback);return nextFrame;},
   cancelAnimationFrame:id=>frames.delete(id),
@@ -52,23 +52,33 @@ sandbox.window.IntersectionObserver=sandbox.IntersectionObserver;
 sandbox.window.ResizeObserver=sandbox.ResizeObserver;
 vm.runInNewContext(readFileSync(new URL('../assets/ui/ambience.js',import.meta.url),'utf8'),sandbox);
 assert.equal(plays,0,'Loading must not autoplay');
-assert.equal(frames.size,0,'Paused sculpture must stay static');
+assert.equal(frames.size,1,'Dragon must animate before audio starts');
 document.emit('click');assert.equal(plays,0,'Unrelated clicks must not start playback');
-const forms=created.filter(node=>node.attributes['data-visual-mode']!==undefined);
-assert.equal(forms.length,3);
-forms[1].emit('click');assert.equal(forms[1].attributes['aria-pressed'],'true');assert.equal(plays,0);
+function tick(){const pending=[...frames.values()];frames.clear();now+=50;pending.forEach(callback=>callback(now));}
+const idleDraws=draws;tick();assert.ok(draws>idleDraws);assert.ok(lastPose.time>0);assert.equal(plays,0);
+assert.equal(stage.dataset.renderState,'idle');
+const controls=created.filter(node=>node.attributes['aria-label']?.includes('dragon'));
+assert.equal(controls.length,5,'One dragon has view controls, no form selector');
+const cameraBefore=lastPose.yaw;controls[1].emit('click');assert.ok(lastPose.yaw>cameraBefore);
+const zoomBefore=lastPose.zoom;controls[3].emit('click');assert.ok(lastPose.zoom>zoomBefore);
+controls[4].emit('click');assert.equal(lastPose.zoom,1);
+const canvas=ids.get('#frequencyCanvas'),beforeDrag=lastPose.yaw;
+canvas.emit('pointerdown',{button:0,pointerId:7,clientX:100,clientY:100});
+canvas.emit('pointermove',{pointerId:7,clientX:145,clientY:120});
+canvas.emit('pointerup');assert.ok(lastPose.yaw>beforeDrag,'Dragging must orbit the dragon');
+controls[4].emit('click');
+
 toggles[0].emit('click');await new Promise(setImmediate);
 assert.equal(plays,1);assert.equal(stage.dataset.renderState,'active');assert.equal(frames.size,1);
-function tick(){const pending=[...frames.values()];frames.clear();now+=50;pending.forEach(callback=>callback(now));}
 tick();hold.emit('click');const frozen=draws;tick();assert.equal(draws,frozen);assert.equal(frames.size,0);
 ids.get('#musicVolume').value='23';ids.get('#musicVolume').emit('input');assert.equal(ids.get('#musicVolumeValue').textContent,'23%');
 tracks[2].emit('click');await new Promise(setImmediate);
 assert.equal(audio.src,'track-2.mp3');assert.equal(hold.attributes['aria-pressed'],'true');assert.equal(frames.size,0);
 ids.get('#musicSeek').value='500';ids.get('#musicSeek').emit('input');assert.equal(audio.currentTime,90);
 hold.emit('click');tick();assert.ok(draws>frozen);assert.equal(frames.size,1);
-for(const form of forms){form.emit('click');for(let i=0;i<25;i++)tick();}
+for(let i=0;i<25;i++)tick();
 stageWidth=390;stageHeight=390;resizeCallback();
-for(const form of forms){form.emit('click');tick();}
+tick();
 const visibility=observers.find(observer=>observer.target===stage);
 visibility.callback([{isIntersecting:false}]);assert.equal(frames.size,0);assert.equal(stage.dataset.renderState,'offscreen');
 visibility.callback([{isIntersecting:true}]);assert.equal(frames.size,1);
@@ -76,4 +86,4 @@ document.hidden=true;document.emit('visibilitychange');assert.equal(frames.size,
 document.hidden=false;document.emit('visibilitychange');reduced.matches=true;reduced.emit('change');
 assert.equal(frames.size,0);assert.equal(hold.disabled,true);assert.equal(stage.dataset.renderState,'reduced');
 const reducedDraws=draws;tick();assert.equal(draws,reducedDraws);
-console.log('PASS: explicit playback, form states/finite geometry, hold/resume, seek/volume/tracks, offscreen/hidden sleep, reduced motion.');
+console.log('PASS: explicit playback, idle flight/rotation/zoom, hold/resume, seek/volume/tracks, offscreen/hidden sleep, reduced motion.');

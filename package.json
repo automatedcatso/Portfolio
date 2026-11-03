@@ -7,7 +7,7 @@
     "dev": "node scripts/dev.mjs",
     "build": "node scripts/build.mjs",
     "preview": "node scripts/dev.mjs dist 4173",
-    "check": "node --check app.js && node --check assets/data/projects.js && node --check assets/ui/cyberpunk.js && node --check assets/ui/ambience.js && node --check assets/ui/ml-lab.js && node scripts/validate.mjs && node scripts/test-projects.mjs && node scripts/test-ml-lab.mjs && node scripts/test-ambience.mjs",
+    "check": "node --check app.js && node --check assets/data/projects.js && node --check assets/ui/cyberpunk.js && node --check assets/ui/ambience.js && node --check assets/ui/dragon-sculpture.js && node --check assets/ui/ml-lab.js && node scripts/validate.mjs && node scripts/test-projects.mjs && node scripts/test-ml-lab.mjs && node scripts/test-ambience.mjs && node scripts/test-dragon.mjs",
     "ui:add:hyper-text": "npx shadcn@latest add @magicui/hyper-text"
   }
 }
