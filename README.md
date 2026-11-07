@@ -13,7 +13,7 @@ I am a B.Tech Computer Science and Engineering student at SRMIST, KTR Campus, wi
 - **RadixOS:** Runs multiple AI assistants on separate copies of a coding project, with 2-8 parallel assistant tasks and locally saved project history.
 - **RED Justice:** Links people, documents and bank transactions to help trace fraud. It grew from an internal fund-flow tracing tool built during my Nashik Cyber Police internship.
 
-The circular browser contains 19 further entries and shows up to eight cards per page. Keyboard navigation, pause/resume and project dialogs work across all 23 entries. Archive revisions are consolidated. VoiceStudio is a third-party application and is not listed as an authored project. The celebration case study is generic; personal photos and messages are not published.
+The circular browser contains 18 further entries and shows up to eight cards per page. Keyboard navigation, pause/resume and project dialogs work across all 22 entries. Archive revisions are consolidated. VoiceStudio is a third-party application and is not listed as an authored project.
 
 ## Research preparation
 

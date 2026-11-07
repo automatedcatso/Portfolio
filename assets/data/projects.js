@@ -55,24 +55,6 @@ window.portfolioProjects = [
     images: [['assets/logos/agamemnon.svg', 'AGAMEMNON // PROJECT MARK']]
   },
   {
-    id: 'celebration', title: 'CELEBRATION WEB', cardName: 'CELEBRATION', role: 'INTERACTIVE MICROSITES', platform: 'HTML + JS',
-    logo: 'assets/logos/celebration.svg', accent: ['#f3a4d2', '#c2b4ff', 'CELEBRATION // SMALL INTERACTIONS'],
-    code: '02.16 // CREATIVE WEB', kicker: 'INTERACTIVE CELEBRATION MICROSITE', status: 'FRONTEND PROJECT',
-    lead: 'Combines countdowns, music controls and short quizzes in small interactive web experiences.',
-    what: 'Celebration Web explores how timing, motion, music and a few playful interactions can turn a static page into an event experience. The portfolio presents the interaction design using a generic project identity.',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Responsive Layout', 'Audio UI'],
-    stats: [['TIME', 'COUNTDOWN'], ['AUDIO', 'CONTROLS'], ['QUIZ', 'INTERACTION'], ['STATIC', 'DELIVERY']],
-    capabilities: ['Displays event countdowns and timed interface states.', 'Includes user-controlled music playback.', 'Offers short quiz interactions and responsive presentation.'],
-    architecture: ['Event Timing', 'Page State', 'Music Controls', 'Quiz Input', 'Feedback'],
-    architectureText: 'Small browser-side state machines coordinate event timing, audio controls and quiz feedback. Static assets and responsive CSS keep the pages straightforward to host.',
-    verification: 'SOURCE-REVIEWED', pack: 'CREATIVE FRONTEND COLLECTION', boundary: 'PUBLIC INTERACTION SUMMARY',
-    sourceMap: ['HTML page structure', 'CSS presentation and responsive rules', 'JavaScript countdown, music and quiz logic'],
-    boundaries: ['Personal names, photographs and private messages are excluded from this public dossier.', 'The project is a frontend interaction collection rather than an AI system.'],
-    notes: ['The academic Agamemnon application is a separate project.', 'The emphasis is browser interaction and presentation.'],
-    trace: ['event time → countdown state', 'user playback → audio state', 'quiz selection → feedback', 'viewport → responsive layout'],
-    images: [['assets/logos/celebration.svg', 'CELEBRATION WEB // PROJECT MARK']]
-  },
-  {
     id: 'neutron', title: 'NEUTRON', cardName: 'NEUTRON', role: 'EMAIL TLS FORENSICS', platform: 'NEXT.JS + DATA',
     logo: 'assets/logos/neutron.svg', accent: ['#38bdf8', '#7dd3fc', 'NEUTRON // SESSION EVIDENCE'],
     code: '02.17 // NETWORK EVIDENCE', kicker: 'LOCAL EMAIL-TLS INVESTIGATION WORKSPACE', status: 'LOCAL APPLICATION',
